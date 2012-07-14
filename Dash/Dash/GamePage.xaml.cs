@@ -21,6 +21,8 @@ namespace Dash
         GameTimer timer;
         SpriteBatch spriteBatch;
 
+        Texture2D dash;
+
         public GamePage()
         {
             InitializeComponent();
@@ -44,6 +46,8 @@ namespace Dash
             spriteBatch = new SpriteBatch(SharedGraphicsDeviceManager.Current.GraphicsDevice);
 
             // TODO: Verwenden Sie this.content, um Ihren Spiel-Content hier zu laden
+
+            this.dash = contentManager.Load<Texture2D>("Dash");
 
             // Timer starten
             timer.Start();
@@ -78,7 +82,9 @@ namespace Dash
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Fügen Sie Ihren Zeichnungscode hier hinzu
+            spriteBatch.Begin();
+            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle(50, 0, 200, 200), Color.White);
+            spriteBatch.End();
         }
     }
 }

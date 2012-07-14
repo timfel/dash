@@ -1,9 +1,13 @@
-﻿<xapCache source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Dash.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="14.07.2012 13:24:35">
+﻿<xapCache source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Dash.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="14.07.2012 15:35:19">
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="14.07.2012 13:24:35" />
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Background.png" archivePath="Background.png" lastWriteTime="12.09.2011 12:24:44" />
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="12.09.2011 12:24:44" />
-  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\Dash.dll" archivePath="Dash.dll" lastWriteTime="14.07.2012 13:24:34" />
+  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\Dash.dll" archivePath="Dash.dll" lastWriteTime="14.07.2012 15:35:19" />
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\DashLib.dll" archivePath="DashLib.dll" lastWriteTime="14.07.2012 13:24:34" />
+  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Dash.png" archivePath="Dash.png" lastWriteTime="14.07.2012 15:14:30" />
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="12.09.2011 12:24:44" />
   <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="14.07.2012 13:24:35" />
+  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.xnb" archivePath="Content\Dash.xnb" lastWriteTime="14.07.2012 15:35:19" />
+  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.png" archivePath="Content\Dash.png" lastWriteTime="14.07.2012 15:35:01" />
+  <file source="c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Dash.png" archivePath="Dash.png" lastWriteTime="14.07.2012 15:14:30" />
 </xapCache>

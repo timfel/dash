@@ -14,3 +14,6 @@ c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\D
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\Dash.dll
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\Dash.pdb
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\XapCacheFile.xml
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Dash.png
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.xnb
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.png

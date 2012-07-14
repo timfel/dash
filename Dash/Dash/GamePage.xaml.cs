@@ -110,11 +110,11 @@ namespace Dash
             var form = forms[currentFormIndex];
             spriteBatch.Begin();
 
-            // spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
-
             this.background.SlicesDo((BackgroundSlice slice) => {
                 spriteBatch.Draw(slice.sprite, new Microsoft.Xna.Framework.Rectangle(slice.offset, 0, Dash.Background.SliceWidth, Dash.Background.ScreenH), Color.White);
             });
+
+            spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int)player.pos.X, (int)player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
 
             spriteBatch.End();
         }

@@ -22,13 +22,10 @@ namespace Dash
         GameTimer timer;
         SpriteBatch spriteBatch;
 
-        Texture2D texDash;
-        Texture2D texDashDucked;
-        Texture2D texBroom;
-
         IList<Form> forms = new List<Form>();
         int currentFormIndex = 0;
         Player player;
+        Dash.Background background;
 
         public GamePage()
         {
@@ -62,8 +59,11 @@ namespace Dash
 
             player.pos.Y = 450;
 
+            this.background = new Background(contentManager);
+
             // Timer starten
             timer.Start();
+            this.background.StartMoving();
 
             base.OnNavigatedTo(e);
         }
@@ -72,6 +72,7 @@ namespace Dash
         {
             // Timer stoppen
             timer.Stop();
+            this.background.StopMoving();
 
             // Freigabemodus des Grafikgeräts so einstellen, das es sich beim XNA-Rendering ausschaltet
             SharedGraphicsDeviceManager.Current.GraphicsDevice.SetSharingMode(false);
@@ -105,9 +106,16 @@ namespace Dash
         private void OnDraw(object sender, GameTimerEventArgs e)
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.White);
+
             var form = forms[currentFormIndex];
             spriteBatch.Begin();
-            spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
+
+            // spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
+
+            this.background.SlicesDo((BackgroundSlice slice) => {
+                spriteBatch.Draw(slice.sprite, new Microsoft.Xna.Framework.Rectangle(slice.offset, 0, Dash.Background.SliceWidth, Dash.Background.ScreenH), Color.White);
+            });
+
             spriteBatch.End();
         }
     }

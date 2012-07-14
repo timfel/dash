@@ -70,6 +70,8 @@
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="BackgroundSlice.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

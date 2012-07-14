@@ -24,6 +24,7 @@ namespace Dash
 
         Texture2D dash;
         Player player;
+        Dash.Background background;
 
         public GamePage()
         {
@@ -52,6 +53,7 @@ namespace Dash
             // TODO: Verwenden Sie this.content, um Ihren Spiel-Content hier zu laden
 
             this.dash = contentManager.Load<Texture2D>("Dash");
+            this.background = new Background(contentManager);
 
             // Timer starten
             timer.Start();
@@ -99,8 +101,11 @@ namespace Dash
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.White);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y, 300, 342), Color.White);
+            spriteBatch.Begin();            
+            this.background.SlicesDo((BackgroundSlice slice) => {
+                spriteBatch.Draw(slice.sprite, new Microsoft.Xna.Framework.Rectangle(slice.offset, 0, Dash.Background.SliceWidth, Dash.Background.ScreenH), Color.White);
+            });
+            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle((int)player.pos.X, (int)player.pos.Y, 300, 342), Color.White);
             spriteBatch.End();
         }
     }

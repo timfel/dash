@@ -1,0 +1,11 @@
+﻿Dash/Dash/Bin/
+Dash/Dash/Bin/*
+Dash/Dash/Bin/*
+Dash/Dash/Bin/
+Dash/Dash/Bin/Debug/Dash.dll
+Dash/Dash/Dash.csproj.user
+Dash/DashLib/bin/
+*.csproj.user
+Dash/DashLibContent/obj/
+Dash/DashLib/DashLib.csproj.Debug.cachefile
+Dash/DashLib/obj/

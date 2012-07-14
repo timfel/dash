@@ -12,6 +12,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Dash
 {
@@ -22,6 +23,7 @@ namespace Dash
         SpriteBatch spriteBatch;
 
         Texture2D dash;
+        Player player;
 
         public GamePage()
         {
@@ -35,6 +37,8 @@ namespace Dash
             timer.UpdateInterval = TimeSpan.FromTicks(333333);
             timer.Update += OnUpdate;
             timer.Draw += OnDraw;
+
+            player = new Player();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -73,6 +77,19 @@ namespace Dash
         private void OnUpdate(object sender, GameTimerEventArgs e)
         {
             // TODO: Fügen Sie Ihre Aktualisierungslogik hier hinzu
+
+            // Process touch events
+            TouchCollection touchCollection = TouchPanel.GetState();
+            foreach (TouchLocation tl in touchCollection)
+            {
+                if ((tl.State == TouchLocationState.Pressed)
+                        || (tl.State == TouchLocationState.Moved))
+                {
+                    player.pos.X += 10;
+                    if (player.pos.X > 700) player.pos.X = 0;
+                }
+            }
+
         }
 
         /// <summary>
@@ -80,10 +97,10 @@ namespace Dash
         /// </summary>
         private void OnDraw(object sender, GameTimerEventArgs e)
         {
-            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
+            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle(50, 0, 200, 200), Color.White);
+            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y, 300, 342), Color.White);
             spriteBatch.End();
         }
     }

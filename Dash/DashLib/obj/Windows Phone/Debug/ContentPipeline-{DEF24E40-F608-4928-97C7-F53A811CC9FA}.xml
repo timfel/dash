@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash.xnb</Output>
-      <Time>2012-07-14T15:35:01.325598+02:00</Time>
+      <Time>2012-07-14T16:24:15.3345564+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -17,10 +17,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLibContent\</RootDirectory>
-      <LoggerRootDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLibContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

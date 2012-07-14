@@ -22,16 +22,29 @@
 
         <!--TitlePanel enthält den Namen der Anwendung und den Seitentitel-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Dash!" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontStyle="Italic" />
         </StackPanel>
 
         <!--ContentPanel - zusätzlichen Content hier platzieren-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             
             <!--Einzelne Schaltfläche erstellen und zur zweiten Seite navigieren, die mit XNA Framework gerendert wird-->
-            <Button Height="100" Content="Change to game page" Click="Button_Click" />
-            
+            <Button Height="100" Content="Change to game page" Click="Button_Click" Margin="0,540,0,0" />
+            <TextBlock Name="textBlock1" Text="
+The  year  is  2034  and  the  machines  have  won.
+In a final,  desperate  act  mankind  has  chosen to
+bestow its combined  knowledge  and technology
+unto the most humble of creatures: the GIRAFFE.
+
+Equipped  with the  knowledge  of man,  a rocket-
+fueled broomstick,  and a foresight as only such  a
+large  mammal  can have,  all hope rests on you to
+escape the clutches of the new robot overlords  to
+start  a  new,  peaceful,  and  decidedly  vegetarian
+kind of civilization.
+
+Preferably far from lions, too." Margin="12,6,0,0" />
         </Grid>
     </Grid>
  

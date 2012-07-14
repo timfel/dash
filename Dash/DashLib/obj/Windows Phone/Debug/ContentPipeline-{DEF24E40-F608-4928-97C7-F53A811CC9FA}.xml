@@ -10,6 +10,42 @@
       <Output>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash.xnb</Output>
       <Time>2012-07-14T16:24:15.3345564+02:00</Time>
     </Item>
+    <Item>
+      <Source>Dash-Ducked.png</Source>
+      <Name>Dash-Ducked</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash-Ducked.xnb</Output>
+      <Time>2012-07-14T17:32:54.5354798+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Besen.png</Source>
+      <Name>Besen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Besen.xnb</Output>
+      <Time>2012-07-14T17:39:37.9220048+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash1.png</Source>
+      <Name>Dash1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash1.xnb</Output>
+      <Time>2012-07-14T19:36:06.9011649+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash2.png</Source>
+      <Name>Dash2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash2.xnb</Output>
+      <Time>2012-07-14T21:37:51.6892153+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{DEF24E40-F608-4928-97C7-F53A811CC9FA}</ContentProjectGUID>

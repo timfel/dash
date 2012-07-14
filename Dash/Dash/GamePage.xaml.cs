@@ -22,7 +22,12 @@ namespace Dash
         GameTimer timer;
         SpriteBatch spriteBatch;
 
-        Texture2D dash;
+        Texture2D texDash;
+        Texture2D texDashDucked;
+        Texture2D texBroom;
+
+        IList<Form> forms = new List<Form>();
+        int currentFormIndex = 0;
         Player player;
 
         public GamePage()
@@ -51,7 +56,11 @@ namespace Dash
 
             // TODO: Verwenden Sie this.content, um Ihren Spiel-Content hier zu laden
 
-            this.dash = contentManager.Load<Texture2D>("Dash");
+            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), contentManager.Load<Texture2D>("Dash1")));
+            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), contentManager.Load<Texture2D>("Dash")));
+            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 341), contentManager.Load<Texture2D>("Dash2")));
+
+            player.pos.Y = 450;
 
             // Timer starten
             timer.Start();
@@ -82,11 +91,9 @@ namespace Dash
             TouchCollection touchCollection = TouchPanel.GetState();
             foreach (TouchLocation tl in touchCollection)
             {
-                if ((tl.State == TouchLocationState.Pressed)
-                        || (tl.State == TouchLocationState.Moved))
+                if ((tl.State == TouchLocationState.Pressed))
                 {
-                    player.pos.X += 10;
-                    if (player.pos.X > 700) player.pos.X = 0;
+                    currentFormIndex = ++currentFormIndex % forms.Count;
                 }
             }
 
@@ -98,9 +105,9 @@ namespace Dash
         private void OnDraw(object sender, GameTimerEventArgs e)
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.White);
-
+            var form = forms[currentFormIndex];
             spriteBatch.Begin();
-            spriteBatch.Draw(dash, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y, 300, 342), Color.White);
+            spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int) player.pos.X, (int) player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
             spriteBatch.End();
         }
     }

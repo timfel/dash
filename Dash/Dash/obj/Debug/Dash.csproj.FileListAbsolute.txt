@@ -16,3 +16,7 @@ c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\D
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\obj\Debug\XapCacheFile.xml
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.xnb
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash.png
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash-Ducked.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Besen.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash1.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\Dash\Bin\Debug\Content\Dash2.xnb

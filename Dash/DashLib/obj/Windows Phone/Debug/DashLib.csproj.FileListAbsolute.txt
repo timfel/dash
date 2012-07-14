@@ -6,3 +6,7 @@ c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Wind
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\DashLib.pdb
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash.xnb
 c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash.png
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash-Ducked.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Besen.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash1.xnb
+C:\Users\Markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\Dash2.xnb

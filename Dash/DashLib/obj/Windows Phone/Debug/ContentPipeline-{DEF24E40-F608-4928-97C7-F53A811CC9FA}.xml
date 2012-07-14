@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{DEF24E40-F608-4928-97C7-F53A811CC9FA}</ContentProjectGUID>
+      <TargetPlatform>WindowsPhone</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLibContent\</RootDirectory>
+      <LoggerRootDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-06-20T22:31:54.6549327+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

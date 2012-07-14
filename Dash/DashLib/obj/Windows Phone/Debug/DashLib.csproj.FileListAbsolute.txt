@@ -1,0 +1,6 @@
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\DashLib.dll
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\bin\Windows Phone\Debug\DashLib.pdb
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\ResolveAssemblyReference.cache
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\DashLib.dll
+c:\users\markus\documents\visual studio 2010\Projects\Dash\Dash\DashLib\obj\Windows Phone\Debug\DashLib.pdb

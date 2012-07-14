@@ -57,6 +57,7 @@ namespace Dash
 
             // Timer starten
             timer.Start();
+            this.background.StartMoving();
 
             base.OnNavigatedTo(e);
         }
@@ -65,6 +66,7 @@ namespace Dash
         {
             // Timer stoppen
             timer.Stop();
+            this.background.StopMoving();
 
             // Freigabemodus des Grafikgeräts so einstellen, das es sich beim XNA-Rendering ausschaltet
             SharedGraphicsDeviceManager.Current.GraphicsDevice.SetSharingMode(false);

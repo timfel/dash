@@ -17,6 +17,7 @@ namespace Dash
             private int speed;
             private Obstacles controller;
             private bool passed = false;
+            private int blinkCounter = 0;
 
             public Obstacle(Obstacles controller, Texture2D texture, int speed)
             {
@@ -35,7 +36,11 @@ namespace Dash
 
             public void Draw(SpriteBatch sb)
             {
-                sb.Draw(texture, new Rectangle((int)offset, 0, texture.Width, texture.Height), Color.White);
+                if (blinkCounter > 0) blinkCounter--;
+                if (blinkCounter <= 0 || (blinkCounter > 6 && blinkCounter <= 11) || (blinkCounter > 16))
+                {
+                    sb.Draw(texture, new Rectangle((int)offset, 0, texture.Width, texture.Height), Color.White);
+                }
             }
 
             public void Update(GameTime time)
@@ -49,6 +54,7 @@ namespace Dash
                         if (IsBroom && player.isFlying())
                         {
                             player.Kill();
+                            blinkCounter = 20;
                         }
 
                         int pts = 10;

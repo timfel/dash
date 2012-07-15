@@ -126,9 +126,6 @@ namespace Dash
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["poof"].Copy(0, flyOffset + 50));
 
             pos.X = 50;

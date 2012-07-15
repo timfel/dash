@@ -105,7 +105,7 @@ namespace Dash
         /// </summary>
         private void OnDraw(object sender, GameTimerEventArgs e)
         {
-            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.White);
+            SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             var form = forms[currentFormIndex];
             spriteBatch.Begin();

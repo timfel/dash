@@ -67,7 +67,7 @@
   <ItemGroup>
     <Compile Include="Game\Background.cs" />
     <Compile Include="Game\BackgroundSlice.cs" />
-    <Compile Include="Game\Form.cs" />
+    <Compile Include="Game\Frame.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AppManifest.xml">

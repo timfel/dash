@@ -11,8 +11,8 @@ namespace Dash
     {
         private class Obstacle
         {
-            private Texture2D texture;
-            private double offset;
+            public Texture2D texture;
+            public double offset;
             private int speed;
             private Obstacles controller;
 
@@ -21,11 +21,12 @@ namespace Dash
                 this.controller = controller;
                 this.texture = texture;
                 this.speed = speed;
+                this.offset = controller.ScreenW;
             }
 
             public void Draw(SpriteBatch sb)
             {
-                sb.Draw(texture, new Rectangle((int)offset, 0, texture.Width, texture.Height), Color.White);
+                sb.Draw(texture, new Rectangle((int)offset, controller.ScreenH / 2, texture.Width, texture.Height), Color.White);
             }
 
             public void Update(GameTime time)
@@ -44,12 +45,17 @@ namespace Dash
         private List<Texture2D> textures;
         private SpriteBatch spriteBatch;
         private List<Obstacle> obstacles;
+        private int ScreenH;
+        private int ScreenW;
 
         public Obstacles(Game game) : base(game)
         {
             this.textures = new List<Texture2D>();
             this.obstacles = new List<Obstacle>();
             DrawOrder = 9;
+
+            ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            ScreenH = game.GraphicsDevice.PresentationParameters.BackBufferHeight;
         }
 
         protected override void LoadContent()
@@ -76,59 +82,49 @@ namespace Dash
 
         public override void Update(GameTime time)
         {
-            if (time.ElapsedGameTime.Seconds > 10)
+            if (time.TotalGameTime.Seconds < 10)
                 this.UpdateStage1(time);
-            else if (time.ElapsedGameTime.Seconds > 30)
+            else if (time.TotalGameTime.Seconds < 30)
                 this.UpdateStage2(time);
-            else if (time.ElapsedGameTime.Seconds > 70)
+            else if (time.TotalGameTime.Seconds < 70)
                 this.UpdateStage3(time);
             else
                 this.UpdateStage4(time);
+
+            foreach (Obstacle o in obstacles.ToArray())
+                o.Update(time);
         }
 
         private void UpdateStage1(GameTime time)
         {
-            if (this.obstacles.Count < 1)
-            {
-                var t = RandomJumper();
-                if (time.TotalGameTime.Milliseconds % 14 == 0)
-                {
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
-                }
-            }
+            UpdateStageX(time, 1, 14, Jumpers.Count);
         }
 
         private void UpdateStage2(GameTime time)
         {
-            if (this.obstacles.Count < 2)
-            {
-                var t = RandomTexture(Jumpers.Count + Duckers.Count, 0);
-                if (time.TotalGameTime.Milliseconds % 14 == 0)
-                {
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
-                }
-            }
+            UpdateStageX(time, 2, 14, Jumpers.Count + Duckers.Count);
         }
 
         private void UpdateStage3(GameTime time)
         {
-            if (this.obstacles.Count < 2)
-            {
-                var t = RandomTexture(Jumpers.Count + Duckers.Count, 0);
-                if (time.TotalGameTime.Milliseconds % 6 == 0)
-                {
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
-                }
-            }
+            UpdateStageX(time, 2, 6, Jumpers.Count + Duckers.Count + Brooms.Count);
         }
 
         private void UpdateStage4(GameTime time)
         {
-            if (this.obstacles.Count < 3)
+            UpdateStageX(time, 3, 6, Jumpers.Count + Duckers.Count + Brooms.Count);
+        }
+
+        private void UpdateStageX(GameTime time, int maxCount, int moduloChance, int textureChoices)
+        {
+            if (obstacles.Count < maxCount)
             {
-                var t = RandomTexture(Jumpers.Count + Duckers.Count, 0);
-                if (time.TotalGameTime.Milliseconds % 6 == 0)
+                Obstacle last = null;
+                if (obstacles.Count > 0)
+                    last = obstacles[this.obstacles.Count - 1];
+                if ((last == null || last.offset < ScreenW + last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
                 {
+                    var t = RandomTexture(textureChoices, 0);
                     this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
                 }
             }

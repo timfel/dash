@@ -70,9 +70,10 @@ namespace DashXna
         {
             // Create a new SpriteBatch, which can be used to draw textures.            
 
-            bgMusic = Content.Load<Song>("teru_-_Waiting");
+            bgMusic = Content.Load<Song>("DoKashiteru_-_ditto_ditto_");            
+
             MediaPlayer.Play(bgMusic);
-            MediaPlayer.Volume = 0.1f;
+            MediaPlayer.Volume = 0.5f;
             MediaPlayer.IsRepeating = true;
 
             base.LoadContent();

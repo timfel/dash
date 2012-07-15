@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
+using DashXna;
 
 namespace Dash
 {
@@ -15,6 +16,7 @@ namespace Dash
             public double offset;
             private int speed;
             private Obstacles controller;
+            private bool passed = false;
 
             public Obstacle(Obstacles controller, Texture2D texture, int speed)
             {
@@ -26,15 +28,30 @@ namespace Dash
 
             public void Draw(SpriteBatch sb)
             {
-                sb.Draw(texture, new Rectangle((int)offset, controller.ScreenH / 2, texture.Width, texture.Height), Color.White);
+                sb.Draw(texture, new Rectangle((int)offset, 0, texture.Width, texture.Height), Color.White);
             }
 
             public void Update(GameTime time)
-            {                
+            {
+                var player = controller.Player;
+                if (!passed && offset < player.pos.X)
+                {
+                    passed = true;
+                    if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
+                    {
+                        // TODO: Extra points
+                    } else {
+                        // TODO: Player needs to die
+                    }
+                }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;
                 if (offset < -texture.Width)
                     this.controller.RemoveObstacle(this);
             }
+
+            public bool IsJumper { get { return this.controller.textures.IndexOf(this.texture) < Jumpers.Count; } }
+            public bool IsDucker { get { return !this.IsJumper && this.controller.textures.IndexOf(this.texture) < Duckers.Count; } }
+            public bool IsBroom { get { return !this.IsJumper && !this.IsDucker; } }
         }
 
         private static List<string> Jumpers = new List<string> { "lions", "river", "rocks", "alligator" };
@@ -47,12 +64,16 @@ namespace Dash
         private List<Obstacle> obstacles;
         private int ScreenH;
         private int ScreenW;
+        private Game1 game;
 
-        public Obstacles(Game game) : base(game)
+        public Player Player { get { return game.player; } }
+        
+        public Obstacles(Game1 game) : base(game)
         {
+            this.game = game;
             this.textures = new List<Texture2D>();
             this.obstacles = new List<Obstacle>();
-            DrawOrder = 9;
+            DrawOrder = 11;
 
             ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
             ScreenH = game.GraphicsDevice.PresentationParameters.BackBufferHeight;

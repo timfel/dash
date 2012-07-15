@@ -39,9 +39,9 @@ namespace Dash
                     passed = true;
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
-                        // TODO: Extra points
+                        player.Highscore.AddPoints(10);
                     } else {
-                        // TODO: Player needs to die
+                        player.Lives -= 1;
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;

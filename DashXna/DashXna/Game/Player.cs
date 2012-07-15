@@ -12,6 +12,7 @@ namespace Dash
         public Vector2 pos;
 
         double frameIndex = 0;
+        private int lives = 0;
 
         SpriteBatch spriteBatch;
 
@@ -31,6 +32,26 @@ namespace Dash
             DrawOrder = 10;
 
             animation = defaultAnimation;
+        }
+
+        public int Lives
+        {
+            get
+            {
+                return lives;
+            }
+
+            set
+            {
+                if (value > 0)
+                {
+                    lives = value;
+                }
+                else
+                {
+                    // game over
+                }
+            }
         }
 
         protected override void LoadContent()
@@ -94,8 +115,6 @@ namespace Dash
         {
             animation = jumpAnimation;
             frameIndex = 0;
-
-            highscores.AddPoints(10);
         }
 
         public bool isJumping()
@@ -130,6 +149,14 @@ namespace Dash
             get
             {
                 return animation[(int) frameIndex].bounds;
+            }
+        }
+
+        public HighscoreDisplay Highscore
+        {
+            get
+            {
+                return highscores;
             }
         }
 

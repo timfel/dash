@@ -110,8 +110,10 @@ namespace Dash
             sprites = new SpriteManager(Game);
             Game.Components.Add(sprites);
 
-            player = new Player(Game, this);                        
-            player.Lives = 300;
+            player = new Player(Game, this);
+
+            player.Restart();
+
             Game.Components.Add(player);
 
             this.background = new Background(Game);

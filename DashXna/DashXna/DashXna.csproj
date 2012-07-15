@@ -73,6 +73,8 @@
     <Compile Include="Game\Obstacles.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Game\SoundManager.cs" />
+    <Compile Include="Game\Sprite.cs" />
+    <Compile Include="Game\SpriteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AppManifest.xml">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

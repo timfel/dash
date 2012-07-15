@@ -24,6 +24,7 @@ namespace Dash
         Obstacles obstacles;     
         HighscoreDisplay highscores;        
         SoundManager sound;
+        SpriteManager sprites;
    
         private bool _visible = true, _enabled = true;
 
@@ -38,6 +39,7 @@ namespace Dash
                 background.Visible = value;
                 obstacles.Visible = value;
                 highscores.Visible = value;
+                sprites.Visible = value;
             }
         }
 
@@ -52,6 +54,7 @@ namespace Dash
                 background.Enabled = value;
                 obstacles.Enabled = value;
                 highscores.Enabled = value;
+                sprites.Enabled = value;
             }
         }
 
@@ -67,6 +70,9 @@ namespace Dash
         /// </summary>
         public override void Initialize()
         {
+            sprites = new SpriteManager(Game);
+            Game.Components.Add(sprites);
+
             player = new Player(Game);
             Game.Components.Add(player);
 

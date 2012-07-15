@@ -153,6 +153,16 @@ namespace Dash
                 spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a broom.",
                     new Vector2(300, 150), Color.Black);
             }
+            else if (timeEllapsed > 6 && timeEllapsed < 8)            
+                spriteBatch.DrawString(font, "STAGE 1", new Vector2(300, 200), Color.Black);            
+            else if (timeEllapsed > 20 && timeEllapsed < 22)
+                spriteBatch.DrawString(font, "STAGE 2", new Vector2(300, 200), Color.Black);
+            else if (timeEllapsed > 40 && timeEllapsed < 42)
+                spriteBatch.DrawString(font, "STAGE 3", new Vector2(300, 200), Color.Black);
+            else if (timeEllapsed > 70 && timeEllapsed < 72)
+                spriteBatch.DrawString(font, "STAGE 4", new Vector2(300, 200), Color.Black);
+            else if (timeEllapsed > 110 && timeEllapsed < 112)
+                spriteBatch.DrawString(font, "STAGE 5 - END(LESS) GAME", new Vector2(300, 200), Color.Black);
 
             spriteBatch.End();
         }
@@ -161,12 +171,14 @@ namespace Dash
         {
             if (timeEllapsed < 6)
                 this.UpdateTutorial(time);
-            else if (time.TotalGameTime.Seconds < 30)
+            else if (timeEllapsed < 20)
                 this.UpdateStage1(time);
-            else if (time.TotalGameTime.Seconds < 60)
+            else if (timeEllapsed < 40)
                 this.UpdateStage2(time);
-            else if (time.TotalGameTime.Seconds < 100)
+            else if (timeEllapsed < 70)
                 this.UpdateStage3(time);
+            else if (timeEllapsed < 110)
+                this.UpdateStage4(time);
             else
                 this.UpdateStage4(time);
 
@@ -181,7 +193,7 @@ namespace Dash
         }
 
         private void UpdateStage1(GameTime time)
-        {
+        {            
             UpdateStageX(time, 1, 14, Jumpers.Count);
         }
 
@@ -196,6 +208,11 @@ namespace Dash
         }
 
         private void UpdateStage4(GameTime time)
+        {
+            UpdateStageX(time, 3, 6, Jumpers.Count + Duckers.Count + Brooms.Count);
+        }
+
+        private void UpdateStage5(GameTime time)
         {
             UpdateStageX(time, 3, 6, Jumpers.Count + Duckers.Count + Brooms.Count);
         }

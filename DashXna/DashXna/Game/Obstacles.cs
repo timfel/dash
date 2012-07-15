@@ -40,8 +40,11 @@ namespace Dash
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
                         // TODO: Extra points
-                    } else {
-                        // TODO: Player needs to die
+                    }
+                    else
+                    {
+                        (this.controller.game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent).Enabled = false;
+                        player.highscores.GameOver = true;
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;

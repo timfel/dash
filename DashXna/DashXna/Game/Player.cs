@@ -25,7 +25,7 @@ namespace Dash
 
         IList<Frame> animation;
 
-        HighscoreDisplay highscores;
+        public HighscoreDisplay highscores;
         SoundManager sound;
         SoundEffectInstance gallopSound;        
 

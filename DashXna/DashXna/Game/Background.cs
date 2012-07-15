@@ -14,11 +14,12 @@ namespace Dash
         public static int NumSlices = 11;
         public static int ScreenW;
         public static int ScreenH;
-        public static int SliceWidth = (int)Math.Ceiling((double)ScreenW / (NumSlices - 1));
+        public static int SliceWidth;
 
         private List<BackgroundSlice> slices;
         private List<Texture2D> textures;
         private GameTimer timer;
+        private SpriteBatch spriteBatch;
 
         public Background(Game game) : base(game)
         {
@@ -27,15 +28,22 @@ namespace Dash
             timer.UpdateInterval = TimeSpan.FromMilliseconds(40);
 
             this.slices = new List<BackgroundSlice>();
-            this.textures = new List<Texture2D>();
-                        
-            ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
-            ScreenH = game.GraphicsDevice.PresentationParameters.BackBufferHeight;
+            this.textures = new List<Texture2D>();                                   
+        }
+
+        public override void Initialize()
+        {
+            ScreenW = Game.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            ScreenH = Game.GraphicsDevice.PresentationParameters.BackBufferHeight;
+            SliceWidth = (int)Math.Ceiling((double)ScreenW / (NumSlices - 1));
+            
+            base.Initialize();
         }
 
         protected override void LoadContent()
-        {            
-            
+        {
+            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+
             for (int i = 0; i < NumBackgrounds; i++)
             {
                 textures.Add(Game.Content.Load<Texture2D>("BackgroundSlice" + i));
@@ -59,6 +67,13 @@ namespace Dash
 
         public override void Draw(GameTime gameTime)
         {
+            spriteBatch.Begin();
+
+            foreach (var slice in slices)
+                spriteBatch.Draw(slice.sprite, new Microsoft.Xna.Framework.Rectangle(slice.offset, 0, Dash.Background.SliceWidth, Dash.Background.ScreenH), Color.White);
+
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
 

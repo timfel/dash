@@ -119,11 +119,8 @@ namespace Dash
             duckAnimation.Add(sprites["duck-1"].Copy());
             duckAnimation.Add(sprites["duck-2"].Copy());
 
-            int flyOffset = -125;
+            int flyOffset = -25;
             flyAnimation.Add(sprites["poof"].Copy(0, flyOffset + 50));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
-            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
             flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
@@ -198,6 +195,11 @@ namespace Dash
             Lives -= 1;
             sound.Play(SoundManager.Sound.impact);
             blinkCounter = 20;
+        }
+
+        public void Kill()
+        {
+            sound.Play("explosion");
         }
 
         public Microsoft.Xna.Framework.Rectangle Bounds

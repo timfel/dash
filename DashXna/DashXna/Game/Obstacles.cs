@@ -68,8 +68,10 @@ namespace Dash
 
         public override void Draw(GameTime time)
         {
+            spriteBatch.Begin();
             foreach (var o in obstacles)
                 o.Draw(spriteBatch);
+            spriteBatch.End();
         }
 
         public override void Update(GameTime time)

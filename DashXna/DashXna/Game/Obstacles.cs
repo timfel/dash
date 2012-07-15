@@ -39,12 +39,9 @@ namespace Dash
                     passed = true;
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
-                        // TODO: Extra points
-                    }
-                    else
-                    {
-                        (this.controller.game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent).Enabled = false;
-                        player.highscores.GameOver = true;
+                        player.Highscore.AddPoints(10);
+                    } else {
+                        player.Lives -= 1;
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;
@@ -157,7 +154,12 @@ namespace Dash
                 if ((last == null || last.offset < ScreenW + last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
                 {
                     var t = RandomTexture(textureChoices, 0);
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
+                    int boost = 0;
+                    if (textureChoices >= Jumpers.Count + Duckers.Count) // boost if flying obstacle
+                    {
+                        boost = 100;
+                    }
+                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed + boost));
                 }
             }
         }

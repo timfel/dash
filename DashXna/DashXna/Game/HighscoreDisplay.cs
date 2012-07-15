@@ -47,6 +47,12 @@ namespace Dash
             private set;
         }
 
+        public int Lives
+        {
+            get;
+            set;
+        }
+
         public HighscoreDisplay(Game game)
             : base(game)
         {
@@ -93,7 +99,7 @@ namespace Dash
                     if (t.State == TouchLocationState.Pressed && t.Position.X >= 400 && t.Position.X >= 100 && t.Position.X <= 800 && t.Position.Y <= 300)
                     {
                         ShareStatusTask status = new ShareStatusTask();
-                        status.Status = "I just scored " + Score + " on \"Dash!\" with my Windows Phone 7";
+                        status.Status = "I just scored " + Score + " points on \"Dash!\" with my Windows Phone 7";
                         status.Show();
                     }
             }
@@ -121,11 +127,12 @@ namespace Dash
                 spriteBatch.DrawString(gameOverFont, "Game Over", new Vector2(40, 100), Color.White);
                 spriteBatch.DrawString(gameOverFont, "Score: " + this.Score, new Vector2(40, gameOverFont.LineSpacing + 100), Color.White);
 
-                spriteBatch.DrawString(gameOverFont, "Post Score" + this.Score, new Vector2(400, 130), Color.GhostWhite);
+                spriteBatch.DrawString(gameOverFont, "Post Score", new Vector2(400, 130), Color.GhostWhite);
             }
             else
             {
                 spriteBatch.DrawString(normalFont, "Score: " + Score, new Vector2(10, 10), Color.Black);
+                spriteBatch.DrawString(normalFont, "Lives: " + Lives, new Vector2(19, normalFont.LineSpacing), Color.Black);
 
                 foreach (var anim in scoreAnimations)
                     anim.Draw(gameTime, spriteBatch, specialFont);

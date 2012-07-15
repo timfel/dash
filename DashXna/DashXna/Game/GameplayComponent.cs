@@ -67,7 +67,7 @@ namespace Dash
         /// </summary>
         public override void Initialize()
         {
-            player = new Player(Game);
+            player = new Player(Game, this);
             Game.Components.Add(player);
 
             this.background = new Background(Game);

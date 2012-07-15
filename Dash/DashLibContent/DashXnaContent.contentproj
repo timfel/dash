@@ -78,22 +78,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dash-Ducked-Sliding.png">
+      <Name>Dash-Ducked-Sliding</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="BackgroundSlice0.png">
       <Name>BackgroundSlice0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BackgroundSlice1.png">
       <Name>BackgroundSlice1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Dash-Ducked-Sliding.png">
-      <Name>Dash-Ducked-Sliding</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

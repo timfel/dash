@@ -56,11 +56,14 @@ namespace Dash
         public HighscoreDisplay(Game game)
             : base(game)
         {
+            if (game.Services.GetService(typeof(HighscoreDisplay)) != null)
+                game.Services.RemoveService(typeof(HighscoreDisplay));
             game.Services.AddService(typeof(HighscoreDisplay), this);
             DrawOrder = 14;
 
             Score = 0;
             PointsPerSecond = 1;
+            this.GameOver = false;
         }
 
         protected override void LoadContent()
@@ -79,8 +82,7 @@ namespace Dash
         /// to run.  This is where it can query for any required services and load content.
         /// </summary>
         public override void Initialize()
-        {
-            this.GameOver = false;
+        {            
             base.Initialize();
         }
 
@@ -108,7 +110,7 @@ namespace Dash
                 timePoints += gameTime.ElapsedGameTime.TotalSeconds;
                 if (timePoints > 1)
                 {
-                    Score += 1;
+                    Score += PointsPerSecond;
                     timePoints -= 1;
                 }
 

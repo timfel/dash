@@ -95,13 +95,38 @@ namespace Dash
             base.Initialize();
         }
 
+        public void Restart()
+        {
+            Game.Components.Remove(sprites);
+            Game.Components.Remove(player);
+            Game.Components.Remove(background);
+            Game.Components.Remove(obstacles);
+            Game.Components.Remove(highscores);
+
+            highscores = new HighscoreDisplay(Game);
+            highscores.Enabled = true;
+            Game.Components.Add(highscores);
+
+            sprites = new SpriteManager(Game);
+            Game.Components.Add(sprites);
+
+            player = new Player(Game, this);                        
+            player.Lives = 300;
+            Game.Components.Add(player);
+
+            this.background = new Background(Game);
+            Game.Components.Add(background);
+
+            this.obstacles = new Obstacles(Game as Game1);
+            Game.Components.Add(obstacles);            
+        }
+
         /// <summary>
         /// Allows the game component to update itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
 
             base.Update(gameTime);
         }

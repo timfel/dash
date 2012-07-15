@@ -156,7 +156,7 @@ namespace Dash
 
             if (timeEllapsed < 6)
             {
-                spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a broom.",
+                spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a mighty broom\n and destroy the evil robots!",
                     new Vector2(300, 150), Color.Black);
             }
             else if (timeEllapsed > 6 && timeEllapsed < 8)            

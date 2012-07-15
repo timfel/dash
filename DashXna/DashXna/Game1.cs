@@ -21,7 +21,8 @@ namespace DashXna
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Player player;        
-        Dash.Background background;        
+        Dash.Background background;
+        IntroScreen intro;
 
         public Game1()
         {
@@ -48,6 +49,10 @@ namespace DashXna
 
             this.background = new Background(this);
             Components.Add(background);
+
+            intro = new IntroScreen(this);
+            Components.Add(intro);
+            intro.Enabled = true;
 
             base.Initialize();
         }

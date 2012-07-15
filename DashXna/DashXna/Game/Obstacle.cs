@@ -39,7 +39,7 @@ namespace Dash
 
         private Texture2D randomSprite()
         {
-            return textures[new Random().Next(Background.NumBackgrounds)];
+            return textures[new Random().Next(Background.NumLayers)];
         }
     }
 }

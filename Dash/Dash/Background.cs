@@ -13,8 +13,8 @@ namespace Dash
     {
         public static int NumBackgrounds = 2;
         public static int NumSlices = 11;
-        public static int ScreenW = (int)Application.Current.RootVisual.RenderSize.Height;
-        public static int ScreenH = (int)Application.Current.RootVisual.RenderSize.Width;
+        public static int ScreenW = (int)Application.Current.Host.Content.ActualHeight;
+        public static int ScreenH = (int)Application.Current.Host.Content.ActualWidth;
         public static int SliceWidth = (int)Math.Ceiling((double)ScreenW / (NumSlices - 1));
 
         private List<BackgroundSlice> slices;

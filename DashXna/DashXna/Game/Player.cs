@@ -75,10 +75,6 @@ namespace Dash
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
-            sprites.Add("dash", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash")));
-            sprites.Add("dash1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash1")));
-            sprites.Add("dash2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash2")));
-
             sprites.Add("run-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-1")));
             sprites.Add("run-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-2")));
             sprites.Add("run-3", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-3")));
@@ -88,8 +84,6 @@ namespace Dash
 
             sprites.Add("jump-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Jump-1")));
             sprites.Add("jump-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Jump-2")));
-
-            sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 251, 153), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
 
             sprites.Add("broom", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 77), Game.Content.Load<Texture2D>("Besen")));
 

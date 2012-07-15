@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Dash
 {
@@ -25,6 +26,8 @@ namespace Dash
         IList<Frame> animation;
 
         HighscoreDisplay highscores;
+        SoundManager sound;
+        SoundEffectInstance gallopSound;        
 
         public Player(Game game) : base(game)
         {
@@ -76,13 +79,20 @@ namespace Dash
             pos.X = 50;
             pos.Y = 370;
             
+            gallopSound = sound.Loop("gallop");
+            gallopSound.Volume = 1.0f;
+            gallopSound.Pause();
+            
             base.LoadContent();
         }
 
         public void Run()
         {
+            if (animation == jumpAnimation)
+                sound.Play("jumpland");
+
             animation = defaultAnimation;
-            frameIndex = 0;
+            frameIndex = 0;                        
         }
 
         public bool isRunning()
@@ -95,6 +105,7 @@ namespace Dash
             animation = jumpAnimation;
             frameIndex = 0;
 
+            sound.Play("jump");
             highscores.AddPoints(10);
         }
 
@@ -107,6 +118,7 @@ namespace Dash
         {
             animation = duckAnimation;
             frameIndex = 0;
+            sound.Play(Dash.SoundManager.Sound.slide);
         }
 
         public bool isDucking()
@@ -185,6 +197,7 @@ namespace Dash
         public override void Initialize()
         {
             highscores = Game.Services.GetService(typeof(HighscoreDisplay)) as HighscoreDisplay;
+            sound = Game.Services.GetService(typeof(SoundManager)) as SoundManager;
             
             base.Initialize();
         }
@@ -204,6 +217,11 @@ namespace Dash
                 }
                 frameIndex = 0;
             }
+
+            if (gallopSound.State != SoundState.Playing && isRunning())
+                gallopSound.Play();
+            else if (!isRunning())
+                gallopSound.Pause();
             
             base.Update(gameTime);
         }

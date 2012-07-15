@@ -132,15 +132,15 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="DoKashiteru_-_ditto_ditto_.wav">
-      <Name>DoKashiteru_-_ditto_ditto_</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SongProcessor</Processor>
-	</Compile>
     <Compile Include="explosion.mp3">
       <Name>explosion</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="DoKashiteru_-_ditto_ditto_.mp3">
+      <Name>DoKashiteru_-_ditto_ditto_</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
     </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>

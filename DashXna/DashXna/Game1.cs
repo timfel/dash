@@ -73,7 +73,7 @@ namespace DashXna
             bgMusic = Content.Load<Song>("DoKashiteru_-_ditto_ditto_");            
 
             MediaPlayer.Play(bgMusic);
-            MediaPlayer.Volume = 0.7f;
+            MediaPlayer.Volume = 0.4f;
             MediaPlayer.IsRepeating = true;
 
             base.LoadContent();

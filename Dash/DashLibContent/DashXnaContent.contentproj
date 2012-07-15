@@ -148,6 +148,16 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="Dash-Slide-1.png">
+      <Name>Dash-Slide-1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Dash-Slide-2.png">
+      <Name>Dash-Slide-2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -47,8 +47,10 @@ namespace Dash
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
                         player.Highscore.AddPoints(10);
-                    } else {
-                        player.OnCollision();                        
+                    }
+                    else
+                    {
+                        player.OnCollision();
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;
@@ -57,7 +59,8 @@ namespace Dash
             }
 
             public bool IsJumper { get { return this.controller.textures.IndexOf(this.texture) < Jumpers.Count; } }
-            public bool IsDucker {
+            public bool IsDucker
+            {
                 get
                 {
                     var index = this.controller.textures.IndexOf(this.texture);
@@ -75,6 +78,7 @@ namespace Dash
 
         private List<Texture2D> textures;
         private SpriteBatch spriteBatch;
+        private SpriteFont font;
         private List<Obstacle> obstacles;
         private int ScreenH;
         private int ScreenW;
@@ -83,8 +87,11 @@ namespace Dash
         private SoundManager sounds;
 
         public Player Player { get { return gameplay.player; } }
-        
-        public Obstacles(Game1 game) : base(game)
+
+        private double timeEllapsed = 0;
+
+        public Obstacles(Game1 game)
+            : base(game)
         {
             this.game = game;
             this.textures = new List<Texture2D>();
@@ -99,13 +106,22 @@ namespace Dash
         {
             gameplay = Game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent;
             sounds = Game.Services.GetService(typeof(SoundManager)) as SoundManager;
-            
+
             base.Initialize();
+        }
+
+        protected override void OnEnabledChanged(object sender, EventArgs args)
+        {
+            if (Enabled)
+                timeEllapsed = 0;
+
+            base.OnEnabledChanged(sender, args);
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Game.Content.Load<SpriteFont>("Default");
 
             foreach (var s in Jumpers)
                 textures.Add(Game.Content.Load<Texture2D>(s));
@@ -122,22 +138,37 @@ namespace Dash
             spriteBatch.Begin();
             foreach (var o in obstacles)
                 o.Draw(spriteBatch);
+
+            if (timeEllapsed < 6)
+            {
+                spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a broom.",
+                    new Vector2(300, 150), Color.Black);
+            }
+
             spriteBatch.End();
         }
 
         public override void Update(GameTime time)
         {
-            if (time.TotalGameTime.Seconds < 10)
-                this.UpdateStage1(time);
+            if (timeEllapsed < 6)
+                this.UpdateTutorial(time);
             else if (time.TotalGameTime.Seconds < 30)
+                this.UpdateStage1(time);
+            else if (time.TotalGameTime.Seconds < 60)
                 this.UpdateStage2(time);
-            else if (time.TotalGameTime.Seconds < 70)
+            else if (time.TotalGameTime.Seconds < 100)
                 this.UpdateStage3(time);
             else
                 this.UpdateStage4(time);
 
             foreach (Obstacle o in obstacles.ToArray())
                 o.Update(time);
+
+            timeEllapsed += time.ElapsedGameTime.TotalSeconds;
+        }
+
+        private void UpdateTutorial(GameTime time)
+        {
         }
 
         private void UpdateStage1(GameTime time)
@@ -167,7 +198,8 @@ namespace Dash
                 Obstacle last = null;
                 if (obstacles.Count > 0)
                     last = obstacles[this.obstacles.Count - 1];
-                if ((last == null || last.offset < ScreenW + last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
+
+                if ((last == null || last.offset < last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
                 {
                     var t = RandomTexture(textureChoices, 0);
                     this.obstacles.Add(new Obstacle(this, t, -1));

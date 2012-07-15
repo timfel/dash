@@ -10,7 +10,7 @@ namespace Dash
 {
     public class Background : DrawableGameComponent
     {
-        public static int NumBackgrounds = 2;
+        public static int NumBackgrounds = 3;
         public static int NumSlices = 11;
         public static int ScreenW;
         public static int ScreenH;

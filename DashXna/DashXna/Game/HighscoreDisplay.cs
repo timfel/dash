@@ -98,11 +98,16 @@ namespace Dash
                     opacity += 0.1f;
                 TouchCollection touches = TouchPanel.GetState();
                 foreach (var t in touches)
-                    if (t.State == TouchLocationState.Pressed && t.Position.X >= 400 && t.Position.X >= 100 && t.Position.X <= 800 && t.Position.Y <= 300)
+                    if (t.State == TouchLocationState.Pressed && t.Position.X >= 400 && t.Position.Y >= 130 && t.Position.X <= 800 && t.Position.Y <= 300)
                     {
                         ShareStatusTask status = new ShareStatusTask();
                         status.Status = "I just scored " + Score + " points on \"Dash!\" with my Windows Phone 7";
                         status.Show();
+                    }
+                    else if (t.State == TouchLocationState.Pressed && t.Position.X >= 400 && t.Position.Y >= 130 + gameOverFont.LineSpacing + 100 && t.Position.X <= 800 && t.Position.Y <= 130 + gameOverFont.LineSpacing * 2 + 100)
+                    {
+                        GameplayComponent game = Game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent;
+                        game.Restart();
                     }
             }
             else
@@ -130,6 +135,7 @@ namespace Dash
                 spriteBatch.DrawString(gameOverFont, "Score: " + this.Score, new Vector2(40, gameOverFont.LineSpacing + 100), Color.White);
 
                 spriteBatch.DrawString(gameOverFont, "Post Score", new Vector2(400, 130), Color.GhostWhite);
+                spriteBatch.DrawString(gameOverFont, "Retry", new Vector2(400, 130 + gameOverFont.LineSpacing + 100), Color.GhostWhite);
             }
             else
             {

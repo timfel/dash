@@ -61,14 +61,25 @@ namespace Dash
                 }
                 else if (value <= 0)
                 {
-                    Highscore.Lives = 0;
-                    // game over
-                    gameplay.Enabled = false;
-                    gallopSound.Stop();
-                    MediaPlayer.Stop();
-                    Highscore.GameOver = true;
+                    Stop();
                 }
             }
+        }
+
+        public void Stop()
+        {
+            Highscore.Lives = 0;
+            // game over
+            gameplay.Enabled = false;
+            gallopSound.Pause();
+            MediaPlayer.Pause();
+            Highscore.GameOver = true;
+        }
+
+        public void Restart()
+        {
+            Lives = 9;
+            MediaPlayer.Resume();
         }
 
         protected override void LoadContent()

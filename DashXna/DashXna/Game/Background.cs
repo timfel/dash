@@ -18,34 +18,23 @@ namespace Dash
 
         private List<BackgroundSlice> slices;
         private List<Texture2D> textures;
-        private GameTimer timer;
         private SpriteBatch spriteBatch;
 
         public Background(Game game) : base(game)
         {
             var cs = game.Content;
-            timer = new GameTimer();
-            timer.UpdateInterval = TimeSpan.FromMilliseconds(40);
 
             this.slices = new List<BackgroundSlice>();
             this.textures = new List<Texture2D>();
 
-            DrawOrder = 2;
-        }
-
-        public override void Initialize()
-        {
-            ScreenW = Game.GraphicsDevice.PresentationParameters.BackBufferWidth;
-            ScreenH = Game.GraphicsDevice.PresentationParameters.BackBufferHeight;
+            ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
+            ScreenH = game.GraphicsDevice.PresentationParameters.BackBufferHeight;
             SliceWidth = (int)Math.Ceiling((double)ScreenW / (NumSlices - 1));
-            
-            base.Initialize();
         }
 
         protected override void LoadContent()
-        {
-            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-
+        {            
+            
             for (int i = 0; i < NumBackgrounds; i++)
             {
                 textures.Add(Game.Content.Load<Texture2D>("BackgroundSlice" + i));
@@ -55,45 +44,33 @@ namespace Dash
             {
                 var bg = new BackgroundSlice(Game.Content, textures);
                 bg.offset = i * SliceWidth;
-                timer.Update += bg.Update;
                 slices.Add(bg);
             }
+
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
+            foreach (BackgroundSlice slice in slices)
+                slice.Update();
+
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-
-            foreach (var slice in slices)
-                spriteBatch.Draw(slice.sprite, new Microsoft.Xna.Framework.Rectangle(slice.offset, 0, Dash.Background.SliceWidth, Dash.Background.ScreenH), Color.White);
-
+            foreach (BackgroundSlice slice in slices)
+            {
+                slice.DrawUsing(spriteBatch);
+            }
             spriteBatch.End();
 
+
             base.Draw(gameTime);
-        }
-
-        public void SlicesDo(Action<BackgroundSlice> func) {
-            foreach(var slice in slices)
-            {
-                func.Invoke(slice);
-            }
-        }
-
-        public void StartMoving()
-        {
-            timer.Start();
-        }
-
-        public void StopMoving()
-        {
-            timer.Stop();
         }
     }
 }

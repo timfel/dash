@@ -154,7 +154,12 @@ namespace Dash
                 if ((last == null || last.offset < ScreenW + last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
                 {
                     var t = RandomTexture(textureChoices, 0);
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed));
+                    int boost = 0;
+                    if (textureChoices >= Jumpers.Count + Duckers.Count) // boost if flying obstacle
+                    {
+                        boost = 100;
+                    }
+                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed + boost));
                 }
             }
         }

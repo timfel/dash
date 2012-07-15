@@ -80,9 +80,12 @@ namespace Dash
             sprites.Add("run-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-2")));
             sprites.Add("run-3", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash-3")));
 
+            sprites.Add("duck-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-Slide-1")));
+            sprites.Add("duck-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-Slide-2")));
+
             sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 251, 153), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
 
-            sprites.Add("broom", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 238, 88), Game.Content.Load<Texture2D>("Besen")));
+            sprites.Add("broom", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 77), Game.Content.Load<Texture2D>("Besen")));
 
             sprites.Add("buttons", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 800, 480), Game.Content.Load<Texture2D>("Buttons")));
 
@@ -100,10 +103,10 @@ namespace Dash
             jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
             jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
 
-            duckAnimation.Add(sprites["dash-ducked"].Copy());
-            duckAnimation.Add(sprites["dash-ducked"].Copy());
-            duckAnimation.Add(sprites["dash-ducked"].Copy());
-            duckAnimation.Add(sprites["dash-ducked"].Copy());
+            duckAnimation.Add(sprites["duck-1"].Copy());
+            duckAnimation.Add(sprites["duck-2"].Copy());
+            duckAnimation.Add(sprites["duck-1"].Copy());
+            duckAnimation.Add(sprites["duck-2"].Copy());
 
             int flyOffset = -125;
             flyAnimation.Add(sprites["poof"].Copy(0, flyOffset + 50));
@@ -236,7 +239,7 @@ namespace Dash
             }
             else if (isLeft && running)
             {
-                Fly();
+                Jump();
             }
             else if (isRight && running)
             {

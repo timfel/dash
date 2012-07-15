@@ -20,6 +20,7 @@ namespace Dash
         IList<Frame> defaultAnimation = new List<Frame>();
         IList<Frame> jumpAnimation = new List<Frame>();
         IList<Frame> duckAnimation = new List<Frame>();
+        IList<Frame> flyAnimation = new List<Frame>();
 
         IList<Frame> animation;
 
@@ -61,6 +62,15 @@ namespace Dash
             duckAnimation.Add(sprites["dash-ducked"].Copy());
             duckAnimation.Add(sprites["dash-ducked"].Copy());
 
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+
             pos.X = 50;
             pos.Y = 370;
             
@@ -85,20 +95,56 @@ namespace Dash
             frameIndex = 0;
         }
 
+        public void Fly()
+        {
+            animation = flyAnimation;
+            frameIndex = 0;
+        }
+
         protected void CheckInput()
         {
             // Process touch events
-            TouchCollection touchCollection = TouchPanel.GetState();
-            foreach (TouchLocation tl in touchCollection)
+            TouchCollection touches = TouchPanel.GetState();
+            Func<TouchLocation, Boolean> isLeftButton = (TouchLocation tl) =>
             {
-                if (tl.State == TouchLocationState.Pressed && tl.Position.X >= 0 && tl.Position.X <= 100 && tl.Position.Y >= 400)
+                return tl.State == TouchLocationState.Pressed && tl.Position.X >= 0 && tl.Position.X <= 100 && tl.Position.Y >= 380;
+            };
+            Func<TouchLocation, Boolean> isRightButton = (TouchLocation tl) =>
+            {
+                return tl.State == TouchLocationState.Pressed && tl.Position.X >= 700 && tl.Position.X <= 800 && tl.Position.Y >= 380;
+            };
+            bool isLeft = false;
+            bool isRight = false;
+
+            foreach (TouchLocation tl in touches)
+            {
+                if (isLeftButton(tl))
                 {
-                    Jump();
+                    isLeft = true;
+                    break;
                 }
-                else if (tl.State == TouchLocationState.Pressed && tl.Position.X >= 700 && tl.Position.X <= 800 && tl.Position.Y >= 400)
+            }
+
+            foreach (TouchLocation tl in touches)
+            {
+                if (isRightButton(tl))
                 {
-                    Duck();
+                    isRight = true;
+                    break;
                 }
+            }
+
+            if (isLeft && isRight)
+            {
+                Fly();
+            }
+            else if (isLeft)
+            {
+                Jump();
+            }
+            else if (isRight)
+            {
+                Duck();
             }
         }
 

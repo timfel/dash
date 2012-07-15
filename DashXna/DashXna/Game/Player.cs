@@ -24,6 +24,8 @@ namespace Dash
 
         IList<Frame> animation;
 
+        HighscoreDisplay highscores;
+
         public Player(Game game) : base(game)
         {
             DrawOrder = 10;
@@ -87,6 +89,8 @@ namespace Dash
         {
             animation = jumpAnimation;
             frameIndex = 0;
+
+            highscores.AddPoints(10);
         }
 
         public void Duck()
@@ -146,6 +150,13 @@ namespace Dash
             {
                 Duck();
             }
+        }
+
+        public override void Initialize()
+        {
+            highscores = Game.Services.GetService(typeof(HighscoreDisplay)) as HighscoreDisplay;
+            
+            base.Initialize();
         }
 
         public override void Update(GameTime gameTime)

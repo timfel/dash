@@ -51,13 +51,14 @@ namespace DashXna
             this.background = new Background(this);
             Components.Add(background);
 
-
             intro = new IntroScreen(this);
             Components.Add(intro);
             intro.Enabled = true;
 
             this.obstacles = new Obstacles(this);
             Components.Add(obstacles);
+
+            Components.Add(new HighscoreDisplay(this));
 
             base.Initialize();
         }

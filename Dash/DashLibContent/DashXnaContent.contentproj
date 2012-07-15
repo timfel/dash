@@ -123,11 +123,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Importer>XmlImporter</Importer>
     </Content>
-   </ItemGroup>
-   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="StoryBackground.png">
       <Name>StoryBackground</Name>
-	  <Importer>TextureImporter</Importer>
+      <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
@@ -199,6 +199,20 @@
       <Name>Buttons</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HighscoreFont.spritefont">
+      <Name>HighscoreFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HighscoreFont2.spritefont">
+      <Name>HighscoreFont2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

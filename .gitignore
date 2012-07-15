@@ -11,3 +11,6 @@ Dash/DashLib/DashLib.csproj.Debug.cachefile
 Dash/DashLib/obj/
 Dash/Dash/obj
 Dash.suo
+bin
+obj
+*.cachefile

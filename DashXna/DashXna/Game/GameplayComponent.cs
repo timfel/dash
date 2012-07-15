@@ -73,7 +73,7 @@ namespace Dash
             sprites = new SpriteManager(Game);
             Game.Components.Add(sprites);
 
-            player = new Player(Game);
+            player = new Player(Game, this);
             Game.Components.Add(player);
 
             this.background = new Background(Game);

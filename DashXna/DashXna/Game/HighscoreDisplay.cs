@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Phone.Tasks;
 
 
 namespace Dash
@@ -23,6 +25,12 @@ namespace Dash
         double timePoints = 0;
 
         Stack<ScoreAnimation> scoreAnimations = new Stack<ScoreAnimation>();
+        private Texture2D background;
+        private SpriteFont gameOverFont;
+        private bool _gameOver;
+        private float opacity = 0.0f;
+
+        public bool GameOver { get { return _gameOver; } set { _gameOver = value; this.Enabled = value; } }
 
         /// <summary>
         /// Number of points that are added to the highscore automatically each second
@@ -37,6 +45,12 @@ namespace Dash
         {
             get;
             private set;
+        }
+
+        public int Lives
+        {
+            get;
+            set;
         }
 
         public HighscoreDisplay(Game game)
@@ -54,6 +68,8 @@ namespace Dash
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
             normalFont = Game.Content.Load<SpriteFont>("HighscoreFont");
             specialFont = Game.Content.Load<SpriteFont>("HighscoreFont2");
+            gameOverFont = Game.Content.Load<SpriteFont>("GameOverFont");
+            background = Game.Content.Load<Texture2D>("StoryBackground");
             
             base.LoadContent();
         }
@@ -63,7 +79,8 @@ namespace Dash
         /// to run.  This is where it can query for any required services and load content.
         /// </summary>
         public override void Initialize()
-        {            
+        {
+            this.GameOver = false;
             base.Initialize();
         }
 
@@ -73,14 +90,30 @@ namespace Dash
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            timePoints += gameTime.ElapsedGameTime.TotalSeconds;
-            if (timePoints > 1)
+            if (this.GameOver)
             {
-                Score += 1;
-                timePoints -= 1;
+                if (opacity < 0.8f)
+                    opacity += 0.1f;
+                TouchCollection touches = TouchPanel.GetState();
+                foreach (var t in touches)
+                    if (t.State == TouchLocationState.Pressed && t.Position.X >= 400 && t.Position.X >= 100 && t.Position.X <= 800 && t.Position.Y <= 300)
+                    {
+                        ShareStatusTask status = new ShareStatusTask();
+                        status.Status = "I just scored " + Score + " points on \"Dash!\" with my Windows Phone 7";
+                        status.Show();
+                    }
             }
+            else
+            {
+                timePoints += gameTime.ElapsedGameTime.TotalSeconds;
+                if (timePoints > 1)
+                {
+                    Score += 1;
+                    timePoints -= 1;
+                }
 
-            UpdateScoreAnimations(gameTime);
+                UpdateScoreAnimations(gameTime);
+            }
 
             base.Update(gameTime);
         }
@@ -88,14 +121,23 @@ namespace Dash
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
+            if (this.GameOver)
+            {
+                spriteBatch.Draw(background, new Vector2(0, 0), new Color(1, 1, 1, opacity));
+                spriteBatch.DrawString(gameOverFont, "Game Over", new Vector2(40, 100), Color.White);
+                spriteBatch.DrawString(gameOverFont, "Score: " + this.Score, new Vector2(40, gameOverFont.LineSpacing + 100), Color.White);
 
-            spriteBatch.DrawString(normalFont, "Score: " + Score, new Vector2(10, 10), Color.Black);
+                spriteBatch.DrawString(gameOverFont, "Post Score", new Vector2(400, 130), Color.GhostWhite);
+            }
+            else
+            {
+                spriteBatch.DrawString(normalFont, "Score: " + Score, new Vector2(10, 10), Color.Black);
+                spriteBatch.DrawString(normalFont, "Lives: " + Lives, new Vector2(19, normalFont.LineSpacing), Color.Black);
 
-            foreach (var anim in scoreAnimations) 
-                anim.Draw(gameTime, spriteBatch, specialFont);
-
+                foreach (var anim in scoreAnimations)
+                    anim.Draw(gameTime, spriteBatch, specialFont);
+            }
             spriteBatch.End();
-            
             base.Draw(gameTime);
         }
 

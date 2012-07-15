@@ -65,8 +65,9 @@ namespace Dash
         private int ScreenH;
         private int ScreenW;
         private Game1 game;
+        private GameplayComponent gameplay;
 
-        public Player Player { get { return game.player; } }
+        public Player Player { get { return gameplay.player; } }
         
         public Obstacles(Game1 game) : base(game)
         {
@@ -77,6 +78,13 @@ namespace Dash
 
             ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
             ScreenH = game.GraphicsDevice.PresentationParameters.BackBufferHeight;
+        }
+
+        public override void Initialize()
+        {
+            gameplay = Game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent;
+            
+            base.Initialize();
         }
 
         protected override void LoadContent()

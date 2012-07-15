@@ -19,11 +19,10 @@ namespace DashXna
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        public Player player;        
-        Dash.Background background;
         IntroScreen intro;
-        Obstacles obstacles;
+        GameplayComponent gameplay;
+        Song bgMusic;
+        SoundManager sound;
 
         public Game1()
         {
@@ -35,6 +34,11 @@ namespace DashXna
 
             // Extend battery life under lock.
             InactiveSleepTime = TimeSpan.FromSeconds(1);
+
+            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
         }
 
         /// <summary>
@@ -45,20 +49,15 @@ namespace DashXna
         /// </summary>
         protected override void Initialize()
         {
-            player = new Player(this);
-            Components.Add(player);
-
-            this.background = new Background(this);
-            Components.Add(background);
+            sound = new SoundManager(this);
+            Components.Add(sound);
 
             intro = new IntroScreen(this);
             Components.Add(intro);
             intro.Enabled = true;
 
-            this.obstacles = new Obstacles(this);
-            Components.Add(obstacles);
-
-            Components.Add(new HighscoreDisplay(this));
+            gameplay = new GameplayComponent(this);
+            Components.Add(gameplay);                        
 
             base.Initialize();
         }
@@ -69,8 +68,12 @@ namespace DashXna
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            // Create a new SpriteBatch, which can be used to draw textures.            
+
+            bgMusic = Content.Load<Song>("teru_-_Waiting");
+            MediaPlayer.Play(bgMusic);
+            MediaPlayer.Volume = 0.1f;
+            MediaPlayer.IsRepeating = true;
 
             base.LoadContent();
         }

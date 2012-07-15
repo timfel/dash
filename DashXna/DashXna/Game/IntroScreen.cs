@@ -80,6 +80,7 @@ namespace Dash
                 {
                     this.Enabled = false;
                     this.Visible = false;
+                    (Game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent).Enabled = true;
                 }
             }
 

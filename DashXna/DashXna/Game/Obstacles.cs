@@ -41,14 +41,14 @@ namespace Dash
             public void Update(GameTime time)
             {
                 var player = controller.Player;
-                if (!passed && offset < player.pos.X)
+                if (!passed && offset < player.pos.X + player.Bounds.Width / 2)
                 {
                     passed = true;
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
                         player.Highscore.AddPoints(10);
                     } else {
-                        player.Lives -= 1;
+                        player.OnCollision();                        
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;
@@ -74,6 +74,7 @@ namespace Dash
         private int ScreenW;
         private Game1 game;
         private GameplayComponent gameplay;
+        private SoundManager sounds;
 
         public Player Player { get { return gameplay.player; } }
         
@@ -91,6 +92,7 @@ namespace Dash
         public override void Initialize()
         {
             gameplay = Game.Services.GetService(typeof(GameplayComponent)) as GameplayComponent;
+            sounds = Game.Services.GetService(typeof(SoundManager)) as SoundManager;
             
             base.Initialize();
         }

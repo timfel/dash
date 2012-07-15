@@ -148,6 +148,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="body_impact_3_with_grunt_.mp3">
+      <Name>body_impact_3_with_grunt_</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+	</Compile>
     <Compile Include="Dash-Slide-1.png">
       <Name>Dash-Slide-1</Name>
       <Importer>TextureImporter</Importer>

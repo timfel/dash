@@ -53,6 +53,7 @@ namespace Dash
 
             set
             {
+                if (Highscore == null) highscores = Game.Services.GetService(typeof(HighscoreDisplay)) as HighscoreDisplay;
                 if (value > 0)
                 {
                     lives = value;
@@ -152,7 +153,7 @@ namespace Dash
         }
 
         public void Jump()
-        {
+        {            
             animation = jumpAnimation;
             frameIndex = 0;
             sound.Play("jump");

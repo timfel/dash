@@ -90,15 +90,22 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="BackgroundSlice1.png">
-      <Name>BackgroundSlice1</Name>
+    <Compile Include="BackgroundSlice2.png">
+      <Name>BackgroundSlice2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundSlice2.png">
-      <Name>BackgroundSlice2</Name>
+    <Compile Include="BackgroundSlice3.png">
+      <Name>BackgroundSlice3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundSlice1.png">
+      <Name>BackgroundSlice1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -128,6 +128,11 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+    <Compile Include="DoKashiteru_-_ditto_ditto_.mp3">
+      <Name>DoKashiteru_-_ditto_ditto_</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

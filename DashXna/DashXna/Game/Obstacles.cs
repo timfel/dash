@@ -57,7 +57,13 @@ namespace Dash
             }
 
             public bool IsJumper { get { return this.controller.textures.IndexOf(this.texture) < Jumpers.Count; } }
-            public bool IsDucker { get { return !this.IsJumper && this.controller.textures.IndexOf(this.texture) < Duckers.Count; } }
+            public bool IsDucker {
+                get
+                {
+                    var index = this.controller.textures.IndexOf(this.texture);
+                    return index >= Jumpers.Count && index < Jumpers.Count + Duckers.Count;
+                }
+            }
             public bool IsBroom { get { return !this.IsJumper && !this.IsDucker; } }
         }
 

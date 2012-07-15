@@ -20,7 +20,7 @@ namespace DashXna
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Player player;        
+        public Player player;        
         Dash.Background background;
         IntroScreen intro;
         Obstacles obstacles;

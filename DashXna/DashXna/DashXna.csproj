@@ -84,9 +84,6 @@
     <Content Include="Dash-Icon.png" />
     <Content Include="Dash-Tile.png" />
     <Content Include="Game.ico" />
-    <Content Include="PhoneGameThumb.png">
-      <XnaPlatformSpecific>true</XnaPlatformSpecific>
-    </Content>
     <Content Include="Background.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>

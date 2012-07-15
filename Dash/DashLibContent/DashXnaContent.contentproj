@@ -111,6 +111,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.spritefont">
+      <Name>Default</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Intro-Story.xml">
+      <Name>Intro-Story</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Importer>XmlImporter</Importer>
+    </Content>
+   </ItemGroup>
+   <ItemGroup>
+    <Compile Include="StoryBackground.png">
+      <Name>StoryBackground</Name>
+	  <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="bisons.png">
       <Name>bisons</Name>
       <Importer>TextureImporter</Importer>

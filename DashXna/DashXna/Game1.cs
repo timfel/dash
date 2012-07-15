@@ -22,6 +22,7 @@ namespace DashXna
         SpriteBatch spriteBatch;
         Player player;        
         Dash.Background background;
+        IntroScreen intro;
         Obstacles obstacles;
 
         public Game1()
@@ -49,6 +50,11 @@ namespace DashXna
 
             this.background = new Background(this);
             Components.Add(background);
+
+
+            intro = new IntroScreen(this);
+            Components.Add(intro);
+            intro.Enabled = true;
 
             this.obstacles = new Obstacles(this);
             Components.Add(obstacles);

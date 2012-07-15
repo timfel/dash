@@ -57,7 +57,13 @@ namespace Dash
             }
 
             public bool IsJumper { get { return this.controller.textures.IndexOf(this.texture) < Jumpers.Count; } }
-            public bool IsDucker { get { return !this.IsJumper && this.controller.textures.IndexOf(this.texture) < Duckers.Count; } }
+            public bool IsDucker {
+                get
+                {
+                    var index = this.controller.textures.IndexOf(this.texture);
+                    return index >= Jumpers.Count && index < Jumpers.Count + Duckers.Count;
+                }
+            }
             public bool IsBroom { get { return !this.IsJumper && !this.IsDucker; } }
         }
 
@@ -164,11 +170,6 @@ namespace Dash
                 if ((last == null || last.offset < ScreenW + last.texture.Width * 2) && time.TotalGameTime.Milliseconds % moduloChance == 0)
                 {
                     var t = RandomTexture(textureChoices, 0);
-                    int boost = 0;
-                    if (textureChoices >= Jumpers.Count + Duckers.Count) // boost if flying obstacle
-                    {
-                        boost = 100;
-                    }
                     this.obstacles.Add(new Obstacle(this, t, -1));
                 }
             }

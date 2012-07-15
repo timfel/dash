@@ -14,7 +14,7 @@ namespace Dash
         public Vector2 pos;
 
         double frameIndex = 0;
-        private int lives = 300;
+        private int lives = 3;
 
         SpriteBatch spriteBatch;
 

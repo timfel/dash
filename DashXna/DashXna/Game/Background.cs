@@ -40,7 +40,7 @@ namespace Dash
             }
         }
 
-        public static int NumLayers = 3;
+        public static int NumLayers = 4;
         public static int ScreenW;
         public static int ScreenH;
 
@@ -66,7 +66,7 @@ namespace Dash
             
             for (int i = NumLayers - 1; i >= 0; i--)
             {
-                var speed = (NumLayers + 1 - i) * 100;
+                var speed = (NumLayers + 1 - i) * 80;
                 var t = Game.Content.Load<Texture2D>("BackgroundSlice" + i);
                 layers.Add(new Layer(t, 0, speed));
                 layers.Add(new Layer(t, t.Width, speed));

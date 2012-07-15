@@ -12,7 +12,7 @@ namespace Dash
         public Vector2 pos;
 
         double frameIndex = 0;
-        int frameDelay = 0;
+
         SpriteBatch spriteBatch;
 
         IDictionary<String, Frame> sprites = new Dictionary<String, Frame>();

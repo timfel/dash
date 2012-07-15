@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Dash
 {
-    public class BackgroundSlice
+    public class Obstacle
     {
         public static int NumBackgrounds = 2;
 
@@ -15,16 +15,15 @@ namespace Dash
         public Texture2D sprite;
         public int offset;
 
-        public BackgroundSlice(ContentManager cs, List<Texture2D> textures)
+        public Obstacle(ContentManager cs, List<Texture2D> textures)
         {
             this.offset = 0;
             this.textures = textures;
             this.sprite = this.randomSprite();
         }
 
-        public void Update(object sender, GameTimerEventArgs e)
+        public void Update()
         {
-            // TODO: Fügen Sie Ihre Aktualisierungslogik hier hinzu
             this.offset -= 15;
             if (this.offset < -Background.SliceWidth)
             {
@@ -33,9 +32,14 @@ namespace Dash
             }
         }
 
+        public void DrawUsing(SpriteBatch sb)
+        {
+            sb.Draw(sprite, new Rectangle(offset, 0, Background.SliceWidth, Background.ScreenH), Color.White);
+        }
+
         private Texture2D randomSprite()
         {
-            return textures[new Random().Next(Background.NumBackgrounds)];
+            return textures[new Random().Next(Background.NumLayers)];
         }
     }
 }

@@ -59,8 +59,7 @@ namespace DashXna
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);                       
-            this.background.StartMoving();
+            spriteBatch = new SpriteBatch(GraphicsDevice);
 
             base.LoadContent();
         }

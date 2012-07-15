@@ -137,6 +137,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="explosion.mp3">
+      <Name>explosion</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

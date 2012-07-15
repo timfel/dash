@@ -24,6 +24,13 @@ namespace Dash
                 this.texture = texture;
                 this.speed = speed;
                 this.offset = controller.ScreenW;
+
+                if (speed < 0)
+                {
+                    if (IsJumper) this.speed = 450;
+                    else if (IsDucker) this.speed = 400;
+                    else this.speed = 400;
+                }
             }
 
             public void Draw(SpriteBatch sb)
@@ -58,6 +65,7 @@ namespace Dash
         private static List<string> Duckers = new List<string> { "tree", "airplane", "rocket" };
         private static List<string> Brooms = new List<string> { "bisons", "burning_loop" };
         private static int ObstacleSpeed = 300; // 300 pixels/s
+        private static int JumpersSpeed = 400;
 
         private List<Texture2D> textures;
         private SpriteBatch spriteBatch;
@@ -159,7 +167,7 @@ namespace Dash
                     {
                         boost = 100;
                     }
-                    this.obstacles.Add(new Obstacle(this, t, ObstacleSpeed + boost));
+                    this.obstacles.Add(new Obstacle(this, t, -1));
                 }
             }
         }

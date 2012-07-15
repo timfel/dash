@@ -14,7 +14,7 @@ namespace Dash
         public Vector2 pos;
 
         double frameIndex = 0;
-        private int lives = 3;
+        private int lives = 9;
 
         SpriteBatch spriteBatch;
 
@@ -39,7 +39,7 @@ namespace Dash
         {
             this.gameplay = gameplay;
 
-            DrawOrder = 10;
+            DrawOrder = 12;
 
             animation = defaultAnimation;
         }
@@ -78,12 +78,15 @@ namespace Dash
             sprites.Add("dash1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash1")));
             sprites.Add("dash2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash2")));
 
-            sprites.Add("run-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-1")));
-            sprites.Add("run-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-2")));
-            sprites.Add("run-3", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash-3")));
+            sprites.Add("run-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-1")));
+            sprites.Add("run-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-2")));
+            sprites.Add("run-3", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-3")));
 
-            sprites.Add("duck-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-Slide-1")));
-            sprites.Add("duck-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-Slide-2")));
+            sprites.Add("duck-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Slide-1")));
+            sprites.Add("duck-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Slide-2")));
+
+            sprites.Add("jump-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Jump-1")));
+            sprites.Add("jump-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 230), Game.Content.Load<Texture2D>("Dash-Jump-2")));
 
             sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 251, 153), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
 
@@ -97,13 +100,13 @@ namespace Dash
             defaultAnimation.Add(sprites["run-2"].Copy());
             defaultAnimation.Add(sprites["run-3"].Copy());
 
-            jumpAnimation.Add(sprites["dash2"].Copy());
-            jumpAnimation.Add(sprites["dash2"].Copy());
-            jumpAnimation.Add(sprites["dash2"].Copy(0, -100));
-            jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
-            jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
-            jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
-            jumpAnimation.Add(sprites["dash-ducked"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-2"].Copy(0, -50));
+            jumpAnimation.Add(sprites["jump-1"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-1"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-1"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-1"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-1"].Copy(0, -100));
+            jumpAnimation.Add(sprites["jump-2"].Copy(0, -50));
 
             duckAnimation.Add(sprites["duck-1"].Copy());
             duckAnimation.Add(sprites["duck-2"].Copy());

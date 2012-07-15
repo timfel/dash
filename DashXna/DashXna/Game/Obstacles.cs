@@ -85,9 +85,9 @@ namespace Dash
             public bool IsBroom { get { return !this.IsJumper && !this.IsDucker; } }
         }
 
-        private static List<string> Jumpers = new List<string> { "lions", "river", "rocks", "alligator" };
+        private static List<string> Jumpers = new List<string> { "river", "rocks", "Alligator-1" };
         private static List<string> Duckers = new List<string> { "tree", "airplane", "rocket" };
-        private static List<string> Brooms = new List<string> { "bisons", "burning_loop" };
+        private static List<string> Brooms = new List<string> { "Robot-1" };
         private static int ObstacleSpeed = 300; // 300 pixels/s
         private static int JumpersSpeed = 400;
 
@@ -156,7 +156,7 @@ namespace Dash
 
             if (timeEllapsed < 6)
             {
-                spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a broom.",
+                spriteBatch.DrawString(font, "Press the Left Arrow to jump,\nthe Right Arrow to duck,\nand both to become a mighty broom\n and destroy the evil robots!",
                     new Vector2(300, 150), Color.Black);
             }
             else if (timeEllapsed > 6 && timeEllapsed < 8)            

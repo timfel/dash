@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Dash
 {
@@ -13,7 +14,7 @@ namespace Dash
         public Vector2 pos;
 
         double frameIndex = 0;
-        private int lives = 0;
+        private int lives = 3;
 
         SpriteBatch spriteBatch;
 
@@ -28,10 +29,14 @@ namespace Dash
 
         HighscoreDisplay highscores;
         SoundManager sound;
-        SoundEffectInstance gallopSound;        
+        SoundEffectInstance gallopSound;
 
-        public Player(Game game) : base(game)
+        GameplayComponent gameplay;
+
+        public Player(Game game, GameplayComponent gameplay) : base(game)
         {
+            this.gameplay = gameplay;
+
             DrawOrder = 10;
 
             animation = defaultAnimation;
@@ -49,10 +54,15 @@ namespace Dash
                 if (value > 0)
                 {
                     lives = value;
+                    Highscore.Lives = value;
                 }
-                else
+                else if (value <= 0)
                 {
+                    Highscore.Lives = 0;
                     // game over
+                    gameplay.Enabled = false;
+                    gallopSound.Stop();
+                    MediaPlayer.Stop();
                 }
             }
         }
@@ -225,6 +235,8 @@ namespace Dash
         {
             highscores = Game.Services.GetService(typeof(HighscoreDisplay)) as HighscoreDisplay;
             sound = Game.Services.GetService(typeof(SoundManager)) as SoundManager;
+
+            Highscore.Lives = this.Lives;
             
             base.Initialize();
         }

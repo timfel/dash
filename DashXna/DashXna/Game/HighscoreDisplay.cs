@@ -39,6 +39,12 @@ namespace Dash
             private set;
         }
 
+        public int Lives
+        {
+            get;
+            set;
+        }
+
         public HighscoreDisplay(Game game)
             : base(game)
         {
@@ -90,6 +96,7 @@ namespace Dash
             spriteBatch.Begin();
 
             spriteBatch.DrawString(normalFont, "Score: " + Score, new Vector2(10, 10), Color.Black);
+            spriteBatch.DrawString(normalFont, "Lives: " + Lives, new Vector2(19, normalFont.LineSpacing), Color.Black);
 
             foreach (var anim in scoreAnimations) 
                 anim.Draw(gameTime, spriteBatch, specialFont);

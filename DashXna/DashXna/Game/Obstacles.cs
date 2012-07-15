@@ -46,7 +46,11 @@ namespace Dash
                     passed = true;
                     if (!player.isRunning() && (IsJumper && player.isJumping() || IsDucker && player.isDucking() || IsBroom && player.isFlying()))
                     {
-                        player.Highscore.AddPoints(10);
+                        int pts = 10;
+
+                        if (IsBroom) pts += 35;
+
+                        player.Highscore.AddPoints(pts);
                     }
                     else
                     {

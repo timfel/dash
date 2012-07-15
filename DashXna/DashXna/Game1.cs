@@ -24,6 +24,7 @@ namespace DashXna
         Dash.Background background;
         IntroScreen intro;
         Obstacles obstacles;
+        Song bgMusic;
 
         public Game1()
         {
@@ -35,6 +36,11 @@ namespace DashXna
 
             // Extend battery life under lock.
             InactiveSleepTime = TimeSpan.FromSeconds(1);
+
+            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
+            graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
         }
 
         /// <summary>
@@ -44,7 +50,7 @@ namespace DashXna
         /// and initialize them as well.
         /// </summary>
         protected override void Initialize()
-        {
+        {            
             player = new Player(this);
             Components.Add(player);
 
@@ -71,6 +77,10 @@ namespace DashXna
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            bgMusic = Content.Load<Song>("teru_-_Waiting");
+            MediaPlayer.Play(bgMusic);
+            MediaPlayer.IsRepeating = true;
 
             base.LoadContent();
         }

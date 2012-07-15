@@ -123,6 +123,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Importer>XmlImporter</Importer>
     </Content>
+    <Compile Include="teru_-_Waiting.mp3">
+      <Name>teru_-_Waiting</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StoryBackground.png">

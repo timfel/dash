@@ -16,7 +16,7 @@ namespace Dash
         public static int ScreenH;
         public static int SliceWidth;
 
-        private List<BackgroundSlice> slices;
+        private List<Obstacle> slices;
         private List<Texture2D> textures;
         private SpriteBatch spriteBatch;
 
@@ -24,7 +24,7 @@ namespace Dash
         {
             var cs = game.Content;
 
-            this.slices = new List<BackgroundSlice>();
+            this.slices = new List<Obstacle>();
             this.textures = new List<Texture2D>();
 
             ScreenW = game.GraphicsDevice.PresentationParameters.BackBufferWidth;
@@ -42,7 +42,7 @@ namespace Dash
 
             for (int i = 0; i < NumSlices; i++)
             {
-                var bg = new BackgroundSlice(Game.Content, textures);
+                var bg = new Obstacle(Game.Content, textures);
                 bg.offset = i * SliceWidth;
                 slices.Add(bg);
             }
@@ -54,7 +54,7 @@ namespace Dash
 
         public override void Update(GameTime gameTime)
         {
-            foreach (BackgroundSlice slice in slices)
+            foreach (Obstacle slice in slices)
                 slice.Update();
 
             base.Update(gameTime);
@@ -63,7 +63,7 @@ namespace Dash
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
-            foreach (BackgroundSlice slice in slices)
+            foreach (Obstacle slice in slices)
             {
                 slice.DrawUsing(spriteBatch);
             }

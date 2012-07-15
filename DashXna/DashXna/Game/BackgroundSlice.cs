@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Dash
 {
-    public class BackgroundSlice
+    public class Obstacle
     {
         public static int NumBackgrounds = 2;
 
@@ -15,7 +15,7 @@ namespace Dash
         public Texture2D sprite;
         public int offset;
 
-        public BackgroundSlice(ContentManager cs, List<Texture2D> textures)
+        public Obstacle(ContentManager cs, List<Texture2D> textures)
         {
             this.offset = 0;
             this.textures = textures;

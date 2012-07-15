@@ -65,7 +65,7 @@ namespace Dash
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            textOffset -= gameTime.ElapsedGameTime.TotalSeconds * 50;
+            textOffset -= gameTime.ElapsedGameTime.TotalSeconds * 40;
 
             if (TouchPanel.GetState().Any())
                 textOffset = -5000;

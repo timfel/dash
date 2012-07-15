@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Dash.png</Source>
+      <Name>Dash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Dash.xnb</Output>
+      <Time>2012-07-15T10:06:25.093798+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash-Ducked.png</Source>
+      <Name>Dash-Ducked</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Dash-Ducked.xnb</Output>
+      <Time>2012-07-15T10:06:25.0927979+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Besen.png</Source>
+      <Name>Besen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Besen.xnb</Output>
+      <Time>2012-07-15T10:06:25.0917979+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash1.png</Source>
+      <Name>Dash1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Dash1.xnb</Output>
+      <Time>2012-07-15T10:06:25.093798+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash2.png</Source>
+      <Name>Dash2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Dash2.xnb</Output>
+      <Time>2012-07-15T10:06:25.094798+02:00</Time>
+    </Item>
+    <Item>
+      <Source>BackgroundSlice0.png</Source>
+      <Name>BackgroundSlice0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\BackgroundSlice0.xnb</Output>
+      <Time>2012-07-15T10:06:25.0907978+02:00</Time>
+    </Item>
+    <Item>
+      <Source>BackgroundSlice1.png</Source>
+      <Name>BackgroundSlice1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\BackgroundSlice1.xnb</Output>
+      <Time>2012-07-15T10:06:25.0917979+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Dash-Ducked-Sliding.png</Source>
+      <Name>Dash-Ducked-Sliding</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\Dash-Ducked-Sliding.xnb</Output>
+      <Time>2012-07-15T10:06:25.0927979+02:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{DEF24E40-F608-4928-97C7-F53A811CC9FA}</ContentProjectGUID>
+      <TargetPlatform>WindowsPhone</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Mathias\Projekte\dash\Dash\DashLibContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-04-06T18:34:22.4430096+02:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

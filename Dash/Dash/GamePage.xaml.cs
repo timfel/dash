@@ -23,7 +23,7 @@ namespace Dash
         SpriteBatch spriteBatch;
 
         IList<Form> forms = new List<Form>();
-        int currentFormIndex = 0;
+        double currentFormIndex = 0;
         Player player;
         Dash.Background background;
 
@@ -89,6 +89,7 @@ namespace Dash
             // TODO: Fügen Sie Ihre Aktualisierungslogik hier hinzu
 
             // Process touch events
+            /*
             TouchCollection touchCollection = TouchPanel.GetState();
             foreach (TouchLocation tl in touchCollection)
             {
@@ -96,7 +97,8 @@ namespace Dash
                 {
                     currentFormIndex = ++currentFormIndex % forms.Count;
                 }
-            }
+            }*/
+            currentFormIndex = (currentFormIndex + 10 * e.ElapsedTime.TotalMilliseconds / 1000.0) % forms.Count;  
 
         }
 
@@ -107,7 +109,7 @@ namespace Dash
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            var form = forms[currentFormIndex];
+            var form = forms[(int)currentFormIndex];
             spriteBatch.Begin();
 
             this.background.SlicesDo((BackgroundSlice slice) => {

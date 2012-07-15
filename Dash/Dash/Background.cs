@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace Dash
 {
-    class Background
+    public class Background
     {
         public static int NumBackgrounds = 2;
         public static int NumSlices = 11;
@@ -48,12 +48,12 @@ namespace Dash
             }
         }
 
-        internal void StartMoving()
+        public void StartMoving()
         {
             timer.Start();
         }
 
-        internal void StopMoving()
+        public void StopMoving()
         {
             timer.Stop();
         }

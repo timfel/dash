@@ -48,8 +48,7 @@ namespace Dash
                     {
                         player.Highscore.AddPoints(10);
                     } else {
-                        player.Lives -= 1;
-                        controller.sounds.Play(SoundManager.Sound.impact);
+                        player.OnCollision();                        
                     }
                 }
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;

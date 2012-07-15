@@ -33,6 +33,8 @@ namespace Dash
 
         GameplayComponent gameplay;
 
+        double blinkCounter = 0;
+
         public Player(Game game, GameplayComponent gameplay) : base(game)
         {
             this.gameplay = gameplay;
@@ -182,6 +184,13 @@ namespace Dash
             return animation == flyAnimation;
         }
 
+        public void OnCollision()
+        {
+            Lives -= 1;
+            sound.Play(SoundManager.Sound.impact);
+            blinkCounter = 20;
+        }
+
         public Microsoft.Xna.Framework.Rectangle Bounds
         {
             get
@@ -286,13 +295,18 @@ namespace Dash
             var frame = animation[(int)(frameIndex)];
             spriteBatch.Begin();
 
-            spriteBatch.Draw(frame.texture, new Microsoft.Xna.Framework.Rectangle(
-                (int)pos.X + frame.offsetX,
-                (int)pos.Y + frame.offsetY - frame.bounds.Height,
-                frame.bounds.Width, frame.bounds.Height), Color.White);
+            if (blinkCounter > 0) blinkCounter--;
+
+            if (blinkCounter <= 0 || (blinkCounter > 6 && blinkCounter <= 11) || (blinkCounter > 16))
+            {
+                spriteBatch.Draw(frame.texture, new Microsoft.Xna.Framework.Rectangle(
+                    (int)pos.X + frame.offsetX,
+                    (int)pos.Y + frame.offsetY - frame.bounds.Height,
+                    frame.bounds.Width, frame.bounds.Height), Color.White);
+            }
 
             var buttons = sprites["buttons"];
-
+                       
             spriteBatch.Draw(buttons.texture, buttons.bounds, Color.White);
 
             spriteBatch.End();

@@ -63,6 +63,7 @@ namespace Dash
                     gameplay.Enabled = false;
                     gallopSound.Stop();
                     MediaPlayer.Stop();
+                    Highscore.GameOver = true;
                 }
             }
         }

@@ -153,6 +153,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Importer>XmlImporter</Importer>
     </Content>
+    <Compile Include="HighscoreFont.spritefont">
+      <Name>HighscoreFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
     <Compile Include="teru_-_Waiting.mp3">
       <Name>teru_-_Waiting</Name>
       <Importer>Mp3Importer</Importer>
@@ -257,18 +262,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HighscoreFont.spritefont">
-      <Name>HighscoreFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="HighscoreFont2.spritefont">
       <Name>HighscoreFont2</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <SubType>Designer</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameOverFont.spritefont">
+      <Name>GameOverFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

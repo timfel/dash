@@ -25,7 +25,8 @@ namespace Dash
             jump,
             jumpland,
             slide,
-            whoosh
+            whoosh,
+            impact
         }
 
         public SoundManager(Game game)
@@ -52,6 +53,7 @@ namespace Dash
             sounds.Add("jumpland", Game.Content.Load<SoundEffect>("jumpland"));
             sounds.Add("slide", Game.Content.Load<SoundEffect>("slide"));
             sounds.Add("whoosh", Game.Content.Load<SoundEffect>("whoosh"));
+            sounds.Add("impact", Game.Content.Load<SoundEffect>("body_impact_3_with_grunt_"));
             
             base.LoadContent();
         }

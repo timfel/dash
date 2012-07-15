@@ -48,6 +48,7 @@ namespace Dash
         public Obstacles(Game game) : base(game)
         {
             this.textures = new List<Texture2D>();
+            this.obstacles = new List<Obstacle>();
             DrawOrder = 9;
         }
 
@@ -151,7 +152,7 @@ namespace Dash
             return textures[new Random().Next(count) + offset];
         }
 
-        internal void RemoveObstacle(Obstacle obstacle)
+        private void RemoveObstacle(Obstacle obstacle)
         {
             obstacles.Remove(obstacle);
         }

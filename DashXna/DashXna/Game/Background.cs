@@ -44,7 +44,6 @@ namespace Dash
         public static int ScreenW;
         public static int ScreenH;
 
-        private List<Obstacles> slices;
         private List<Layer> layers;
         private List<Texture2D> textures;
         private SpriteBatch spriteBatch;
@@ -53,7 +52,6 @@ namespace Dash
         {
             var cs = game.Content;
 
-            this.slices = new List<Obstacles>();
             this.layers = new List<Layer>();
             this.textures = new List<Texture2D>();
 

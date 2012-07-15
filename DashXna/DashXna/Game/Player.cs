@@ -20,6 +20,7 @@ namespace Dash
         IList<Frame> defaultAnimation = new List<Frame>();
         IList<Frame> jumpAnimation = new List<Frame>();
         IList<Frame> duckAnimation = new List<Frame>();
+        IList<Frame> flyAnimation = new List<Frame>();
 
         IList<Frame> animation;
 
@@ -34,13 +35,15 @@ namespace Dash
         {
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
-            sprites.Add("dash", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), Game.Content.Load<Texture2D>("Dash")));
-            sprites.Add("dash1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), Game.Content.Load<Texture2D>("Dash1")));
-            sprites.Add("dash2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 341), Game.Content.Load<Texture2D>("Dash2")));
+            sprites.Add("dash", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash")));
+            sprites.Add("dash1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash1")));
+            sprites.Add("dash2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash2")));
 
-            sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 377, 230), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
+            sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 251, 153), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
 
             sprites.Add("broom", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 238, 88), Game.Content.Load<Texture2D>("Besen")));
+
+            sprites.Add("buttons", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 800, 480), Game.Content.Load<Texture2D>("Buttons")));
 
             defaultAnimation.Add(sprites["dash1"].Copy());
             defaultAnimation.Add(sprites["dash"].Copy());
@@ -59,7 +62,17 @@ namespace Dash
             duckAnimation.Add(sprites["dash-ducked"].Copy());
             duckAnimation.Add(sprites["dash-ducked"].Copy());
 
-            pos.Y = 450;
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+
+            pos.X = 50;
+            pos.Y = 370;
             
             base.LoadContent();
         }
@@ -82,17 +95,56 @@ namespace Dash
             frameIndex = 0;
         }
 
+        public void Fly()
+        {
+            animation = flyAnimation;
+            frameIndex = 0;
+        }
+
         protected void CheckInput()
         {
             // Process touch events
-            TouchCollection touchCollection = TouchPanel.GetState();
-            foreach (TouchLocation tl in touchCollection)
+            TouchCollection touches = TouchPanel.GetState();
+            Func<TouchLocation, Boolean> isLeftButton = (TouchLocation tl) =>
             {
-                if ((tl.State == TouchLocationState.Pressed)
-                        || (tl.State == TouchLocationState.Moved))
+                return tl.State == TouchLocationState.Pressed && tl.Position.X >= 0 && tl.Position.X <= 100 && tl.Position.Y >= 380;
+            };
+            Func<TouchLocation, Boolean> isRightButton = (TouchLocation tl) =>
+            {
+                return tl.State == TouchLocationState.Pressed && tl.Position.X >= 700 && tl.Position.X <= 800 && tl.Position.Y >= 380;
+            };
+            bool isLeft = false;
+            bool isRight = false;
+
+            foreach (TouchLocation tl in touches)
+            {
+                if (isLeftButton(tl))
                 {
-                    Jump();
+                    isLeft = true;
+                    break;
                 }
+            }
+
+            foreach (TouchLocation tl in touches)
+            {
+                if (isRightButton(tl))
+                {
+                    isRight = true;
+                    break;
+                }
+            }
+
+            if (isLeft && isRight)
+            {
+                Fly();
+            }
+            else if (isLeft)
+            {
+                Jump();
+            }
+            else if (isRight)
+            {
+                Duck();
             }
         }
 
@@ -124,6 +176,10 @@ namespace Dash
                 (int)pos.X + frame.offsetX,
                 (int)pos.Y + frame.offsetY - frame.bounds.Height,
                 frame.bounds.Width, frame.bounds.Height), Color.White);
+
+            var buttons = sprites["buttons"];
+
+            spriteBatch.Draw(buttons.texture, buttons.bounds, Color.White);
 
             spriteBatch.End();
             

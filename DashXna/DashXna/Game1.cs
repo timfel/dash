@@ -23,6 +23,7 @@ namespace DashXna
         Player player;        
         Dash.Background background;
         IntroScreen intro;
+        Obstacles obstacles;
 
         public Game1()
         {
@@ -50,9 +51,13 @@ namespace DashXna
             this.background = new Background(this);
             Components.Add(background);
 
+
             intro = new IntroScreen(this);
             Components.Add(intro);
             intro.Enabled = true;
+
+            this.obstacles = new Obstacles(this);
+            Components.Add(obstacles);
 
             base.Initialize();
         }
@@ -98,7 +103,7 @@ namespace DashXna
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);            
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
             base.Draw(gameTime);
         }

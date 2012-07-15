@@ -68,7 +68,7 @@
     <Compile Include="Game\Background.cs" />
     <Compile Include="Game\Frame.cs" />
     <Compile Include="Game\IntroScreen.cs" />
-    <Compile Include="Game\Obstacle.cs" />
+    <Compile Include="Game\Obstacles.cs" />
     <Compile Include="Game\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AppManifest.xml">

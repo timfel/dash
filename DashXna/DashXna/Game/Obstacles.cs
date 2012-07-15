@@ -85,9 +85,9 @@ namespace Dash
             public bool IsBroom { get { return !this.IsJumper && !this.IsDucker; } }
         }
 
-        private static List<string> Jumpers = new List<string> { "lions", "river", "rocks", "alligator" };
+        private static List<string> Jumpers = new List<string> { "river", "rocks", "Alligator-1" };
         private static List<string> Duckers = new List<string> { "tree", "airplane", "rocket" };
-        private static List<string> Brooms = new List<string> { "bisons", "burning_loop" };
+        private static List<string> Brooms = new List<string> { "Robot-1" };
         private static int ObstacleSpeed = 300; // 300 pixels/s
         private static int JumpersSpeed = 400;
 

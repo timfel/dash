@@ -142,6 +142,11 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+    <Compile Include="Alligator-1.png">
+      <Name>Alligator-1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -182,17 +187,15 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="StoryBackground.png">
-      <Name>StoryBackground</Name>
+    <Compile Include="Robot-1.png">
+      <Name>Robot-1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bisons.png">
-      <Name>bisons</Name>
+    <Compile Include="StoryBackground.png">
+      <Name>StoryBackground</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -214,13 +217,6 @@
   <ItemGroup>
     <Compile Include="tree.png">
       <Name>tree</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="alligator.png">
-      <Name>alligator</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -28,7 +28,9 @@ namespace Dash
             timer.UpdateInterval = TimeSpan.FromMilliseconds(40);
 
             this.slices = new List<BackgroundSlice>();
-            this.textures = new List<Texture2D>();                                   
+            this.textures = new List<Texture2D>();
+
+            DrawOrder = 2;
         }
 
         public override void Initialize()

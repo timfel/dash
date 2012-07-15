@@ -19,9 +19,3 @@ C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\WMAppMani
 bin\Windows Phone\Debug\
 C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\DashXna.xap
 C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\DashXna.xap
-C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\Mathias\Projekte\dash\DashXna\DashXna\bin\Windows Phone\Debug\AppManifest.xaml
-C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\WMAppManifest.xml.g
-C:\Users\Mathias\Projekte\dash\DashXna\DashXna\obj\Windows Phone\Debug\WMAppManifest.xml
-bin\Windows Phone\Debug\

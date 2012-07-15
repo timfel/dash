@@ -20,10 +20,8 @@ namespace DashXna
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Player player;
-        IList<Form> forms = new List<Form>();
-        Dash.Background background;
-        double currentFormIndex = 0;
+        Player player;        
+        Dash.Background background;        
 
         public Game1()
         {
@@ -45,7 +43,9 @@ namespace DashXna
         /// </summary>
         protected override void Initialize()
         {
-            player = new Player();
+            player = new Player(this);
+            Components.Add(player);
+
             this.background = new Background(this);
             Components.Add(background);
 
@@ -59,13 +59,7 @@ namespace DashXna
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), Content.Load<Texture2D>("Dash1")));
-            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 342), Content.Load<Texture2D>("Dash")));
-            forms.Add(new Form(new Microsoft.Xna.Framework.Rectangle(0, 0, 300, 341), Content.Load<Texture2D>("Dash2")));
-
-            player.pos.Y = 450;            
+            spriteBatch = new SpriteBatch(GraphicsDevice);                       
             this.background.StartMoving();
 
             base.LoadContent();
@@ -89,9 +83,7 @@ namespace DashXna
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
-            currentFormIndex = (currentFormIndex + 10 * gameTime.ElapsedGameTime.TotalMilliseconds / 1000.0) % forms.Count;            
+                this.Exit();                        
 
             base.Update(gameTime);
         }
@@ -102,14 +94,7 @@ namespace DashXna
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            var form = forms[(int)(currentFormIndex)];
-            spriteBatch.Begin();
-
-            spriteBatch.Draw(form.texture, new Microsoft.Xna.Framework.Rectangle((int)player.pos.X, (int)player.pos.Y - form.bounds.Height, form.bounds.Width, form.bounds.Height), Color.White);
-
-            spriteBatch.End();
+            GraphicsDevice.Clear(Color.CornflowerBlue);            
 
             base.Draw(gameTime);
         }

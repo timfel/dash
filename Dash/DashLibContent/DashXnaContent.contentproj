@@ -92,11 +92,6 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="DoKashiteru_-_ditto_ditto_.mp3">
-      <Name>DoKashiteru_-_ditto_ditto_</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
     <Compile Include="Dash-1.png">
       <Name>Dash-1</Name>
       <Importer>TextureImporter</Importer>
@@ -147,6 +142,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="DoKashiteru_-_ditto_ditto_.mp3">
+      <Name>DoKashiteru_-_ditto_ditto_</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
     <Content Include="Intro-Story.xml">
       <Name>Intro-Story</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -156,11 +156,6 @@
       <Name>HighscoreFont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
-    </Compile>
-    <Compile Include="teru_-_Waiting.mp3">
-      <Name>teru_-_Waiting</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
     </Compile>
     <Compile Include="jumpland.wav">
       <Name>jumpland</Name>

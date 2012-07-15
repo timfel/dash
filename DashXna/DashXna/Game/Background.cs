@@ -16,6 +16,9 @@ namespace Dash
             private Texture2D texture;
             private double offset;
             private int speed;
+
+            public double Offset { get { return offset; } }
+
             public Layer(Texture2D texture, int initialOffset, int speed)
             {
                 this.texture = texture;
@@ -33,7 +36,7 @@ namespace Dash
             {                
                 offset -= speed * time.ElapsedGameTime.TotalSeconds;
                 if (offset < -texture.Width)
-                    offset = texture.Width;
+                    offset += texture.Width * 2;
             }
         }
 

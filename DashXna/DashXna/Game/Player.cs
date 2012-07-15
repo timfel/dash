@@ -85,6 +85,11 @@ namespace Dash
             frameIndex = 0;
         }
 
+        public bool isRunning()
+        {
+            return animation == defaultAnimation;
+        }
+
         public void Jump()
         {
             animation = jumpAnimation;
@@ -93,16 +98,39 @@ namespace Dash
             highscores.AddPoints(10);
         }
 
+        public bool isJumping()
+        {
+            return animation == jumpAnimation;
+        }
+
         public void Duck()
         {
             animation = duckAnimation;
             frameIndex = 0;
         }
 
+        public bool isDucking()
+        {
+            return animation == duckAnimation;
+        }
+
         public void Fly()
         {
             animation = flyAnimation;
             frameIndex = 0;
+        }
+
+        public bool isFlying()
+        {
+            return animation == flyAnimation;
+        }
+
+        public Microsoft.Xna.Framework.Rectangle Bounds
+        {
+            get
+            {
+                return animation[(int) frameIndex].bounds;
+            }
         }
 
         protected void CheckInput()
@@ -138,15 +166,17 @@ namespace Dash
                 }
             }
 
-            if (isLeft && isRight)
+            bool running = isRunning();
+
+            if (isLeft && isRight && running)
             {
                 Fly();
             }
-            else if (isLeft)
+            else if (isLeft && running)
             {
                 Jump();
             }
-            else if (isRight)
+            else if (isRight && running)
             {
                 Duck();
             }

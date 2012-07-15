@@ -8,9 +8,9 @@ using System.Resources;
 // associated with an assembly.
 [assembly: AssemblyTitle("DashXna")]
 [assembly: AssemblyProduct("DashXna")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A simple jump and run whose hero is the Giraffe called Dash.")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyCopyright("Copyright ©  2012")]
+[assembly: AssemblyCopyright("Copyright © Tim Felgentreff, Markus Kahl, Mathias Kahl, Stephanie Platz 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

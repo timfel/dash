@@ -76,15 +76,21 @@ namespace Dash
             sprites.Add("dash1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash1")));
             sprites.Add("dash2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash2")));
 
+            sprites.Add("run-1", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-1")));
+            sprites.Add("run-2", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 228), Game.Content.Load<Texture2D>("Dash-2")));
+            sprites.Add("run-3", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 227), Game.Content.Load<Texture2D>("Dash-3")));
+
             sprites.Add("dash-ducked", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 251, 153), Game.Content.Load<Texture2D>("Dash-Ducked-Sliding")));
 
             sprites.Add("broom", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 238, 88), Game.Content.Load<Texture2D>("Besen")));
 
             sprites.Add("buttons", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 800, 480), Game.Content.Load<Texture2D>("Buttons")));
 
-            defaultAnimation.Add(sprites["dash1"].Copy());
-            defaultAnimation.Add(sprites["dash"].Copy());
-            defaultAnimation.Add(sprites["dash2"].Copy());
+            sprites.Add("poof", new Frame(new Microsoft.Xna.Framework.Rectangle(0, 0, 200, 200), Game.Content.Load<Texture2D>("poof")));
+
+            defaultAnimation.Add(sprites["run-1"].Copy());
+            defaultAnimation.Add(sprites["run-2"].Copy());
+            defaultAnimation.Add(sprites["run-3"].Copy());
 
             jumpAnimation.Add(sprites["dash2"].Copy());
             jumpAnimation.Add(sprites["dash2"].Copy());
@@ -99,14 +105,17 @@ namespace Dash
             duckAnimation.Add(sprites["dash-ducked"].Copy());
             duckAnimation.Add(sprites["dash-ducked"].Copy());
 
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
-            flyAnimation.Add(sprites["broom"].Copy(0, -200));
+            int flyOffset = -125;
+            flyAnimation.Add(sprites["poof"].Copy(0, flyOffset + 50));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["broom"].Copy(0, flyOffset));
+            flyAnimation.Add(sprites["poof"].Copy(0, flyOffset + 50));
 
             pos.X = 50;
             pos.Y = 370;
@@ -122,6 +131,8 @@ namespace Dash
         {
             if (animation == jumpAnimation)
                 sound.Play("jumpland");
+            else if (animation == flyAnimation)
+                sound.Play("whoosh");
 
             animation = defaultAnimation;
             frameIndex = 0;                        
@@ -160,6 +171,7 @@ namespace Dash
         {
             animation = flyAnimation;
             frameIndex = 0;
+            sound.Play("whoosh");
         }
 
         public bool isFlying()
@@ -224,7 +236,7 @@ namespace Dash
             }
             else if (isLeft && running)
             {
-                Jump();
+                Fly();
             }
             else if (isRight && running)
             {

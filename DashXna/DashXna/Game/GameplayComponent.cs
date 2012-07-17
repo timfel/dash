@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using DashXna;
+using Microsoft.Advertising.Mobile.Xna;
 
 
 namespace Dash
@@ -27,6 +28,7 @@ namespace Dash
         SpriteManager sprites;
    
         private bool _visible = true, _enabled = true;
+        private DrawableAd bannerAd;
 
         public new bool Visible
         {
@@ -82,8 +84,12 @@ namespace Dash
             this.obstacles = new Obstacles(Game as Game1);
             Game.Components.Add(obstacles);
 
+            AdGameComponent.Initialize(this.Game, "test_client");
+            Game.Components.Add(AdGameComponent.Current);
+
             highscores = new HighscoreDisplay(Game);
             Game.Components.Add(highscores);
+            CreateAd();
 
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
@@ -131,6 +137,17 @@ namespace Dash
         {
 
             base.Update(gameTime);
+        }
+
+        private void CreateAd()
+        {
+            // Create a banner ad for the game.
+            int width = 480;
+            int height = 80;
+            int x = (800 - width) / 2;
+            int y = 0;
+
+            bannerAd = AdGameComponent.Current.CreateAd("Image" + width + "_" + height, new Rectangle(x, y, width, height), true);
         }
     }
 }

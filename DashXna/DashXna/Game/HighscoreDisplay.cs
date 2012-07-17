@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Phone.Tasks;
+using Microsoft.Advertising.Mobile.Xna;
 
 
 namespace Dash
@@ -30,7 +31,13 @@ namespace Dash
         private bool _gameOver;
         private float opacity = 0.0f;
 
-        public bool GameOver { get { return _gameOver; } set { _gameOver = value; this.Enabled = value; } }
+        public bool GameOver { get { return _gameOver; }
+            set { 
+                _gameOver = value;
+                this.Enabled = value;
+                AdGameComponent.Current.Enabled = value;
+                AdGameComponent.Current.Visible = value;
+            } }
 
         /// <summary>
         /// Number of points that are added to the highscore automatically each second
